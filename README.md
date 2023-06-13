@@ -1,1 +1,1 @@
-# Edamam_js_project
+# Recipes_js_project
