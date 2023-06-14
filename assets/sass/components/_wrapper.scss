@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+html, body {
+    overflow-x: hidden;  
+}
+
+.wrapper {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
