@@ -35,6 +35,11 @@
         border: none;
         margin-top: 32px;
         margin-left: 5px;
+        cursor: pointer;
+
+    }
+    .recipe__btn:active{
+        box-shadow: 2px 4px 4px rgba(77, 53, 29, 0.596);
     }
     .recipe__img img {
         width: 600px;
