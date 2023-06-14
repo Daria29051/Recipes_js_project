@@ -1,4 +1,37 @@
-.main-container {
-    max-width: 100vw;
-    overflow: hidden;
-}
+.screen1{
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "screen1__text-part screen1__image-part"
+    "screen1__text-part screen1__image-part"
+    "screen1__text-part screen1__image-part"
+    "screen1__advantages screen1__advantages";
+    }
+    
+    // Текстовый блок
+    .screen1__text-part {
+        grid-area: screen1__text-part;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        padding: 2em;
+    }
+    
+    // Блок с изображением
+    .screen1__image-part{
+        grid-area: screen1__image-part;
+        border: 1px solid red;
+        display: flex;
+        justify-content: center;
+    }
+    
+    //Блок преимуществ
+    .screen1__advantages{
+        grid-area: screen1_advantages;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    //тест
