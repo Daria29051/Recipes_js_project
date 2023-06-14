@@ -2,6 +2,9 @@
 @import "variables";
 @import "typography";
 @import "mixin";
+@import "components/wrapper";
 @import "components/header";
 @import "components/footer";
-@import "components/main";
+@import "components/screen1";
+@import "components/search-screen";
+@import "components/recipe-card";
