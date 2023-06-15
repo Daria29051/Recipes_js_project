@@ -86,3 +86,54 @@
     }
 
 
+
+    // Mobile styles
+    @media screen and (min-width:375px) and (max-width:1023px) {
+
+
+        html, body {
+            overflow-x: hidden;  
+        }
+
+        // Screen1
+
+        .screen1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .screen1__title {
+            text-align: center;
+            font-size: 2em;
+        }
+        
+        .screen1__text {
+            display: none;    
+        }
+
+        .screen1__button {
+            margin: auto;
+        }
+
+        .screen1__image-part {
+            margin: auto;
+        }
+
+        .screen1__image {
+            width: 80%;
+            margin: auto;
+        }
+
+
+        //Advantages
+        .screen1__advantages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5em;
+        }
+
+
+
+    }
