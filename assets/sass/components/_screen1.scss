@@ -1,12 +1,12 @@
 .screen1{
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    justify-content: center;
+    grid-template-rows: 2fr 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
     "screen1__text-part screen1__image-part"
     "screen1__text-part screen1__image-part"
-    "screen1__text-part screen1__image-part"
-    "screen1__advantages screen1__advantages";
+    "screen1_advantages screen1_advantages";
     }
     
     // Текстовый блок
@@ -14,22 +14,74 @@
         grid-area: screen1__text-part;
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
+        justify-content: space-around;
+        align-items: flex-start;
         padding: 2em;
+    }
+
+
+    .title {
+        font-size: 3.5em;
+        font-weight: 700;
+        font-family: 'Quicksand', sans-serif;
+        color: $text-color-1;
+    }
+
+    .text {     
+        font-size: 1.2em;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        color: $text-color-2;
     }
     
     // Блок с изображением
     .screen1__image-part{
         grid-area: screen1__image-part;
-        border: 1px solid red;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
+        padding: 1.5em;
     }
     
+    //Кнопка
+    .screen1__button {
+        width: 11em;
+        height: 3em;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        background-color: $background-color-2;
+        color: $text-color-4;
+        border: none;
+        cursor: pointer;
+    }
+
+
     //Блок преимуществ
     .screen1__advantages{
         grid-area: screen1_advantages;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around;
+        background-color: $background-color-2;
+        border: 1px solid $text-color-1;
+        height: max-content;
+        color: $text-color-4;
+        width: 100vw;
+        padding: 1em 0;
     }
+
+    .screen1__advantage-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+
+
+    .screen1__advantage-text {
+        color: $text-color-4;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1.5em;
+    }
+
+
