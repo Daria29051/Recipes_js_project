@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<link rel="stylesheet" href="assets/sass/style.css">
-<body>
-<div class="wrapper">
-    <!-- Хедер -->
-<header class="header">
-    Хедер
-</header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <link rel="stylesheet" href="assets/sass/style.css" />
+    <body>
+        <!-- <div class="wrapper"> -->
+        <!-- Хедер -->
+        <header class="header">Хедер</header>
 
-<!-- Основная часть -->
-<main class="main-container">
+        <!-- Основная часть -->
+        <main class="main-container">
+            <!-- Первый экран -->
+            <section class="screen1">
+                <div class="screen1__text-part">
+                    <h1 class="screen1__title">
+                        The Best Recipes from All Around the World
+                    </h1>
 
-<!-- Первый экран -->
-<section class="screen1">
-<div class="screen1__text-part">
-    <h1 class="screen1__title">The Best Recipes from All Around the World</h1>
+                    <p class="screen1__text">
+                        Delicious and innovative vegan recipes that are easy to
+                        prepare and family-friendly. From simple dinners to
+                        breakfast and desserts, vegan cheeses, and more. ...
+                        Here, you will find quick and flavorful vegan recipes,
+                        as well as cooking tips
+                    </p>
+                    <button class="screen1__button">Выбрать рецепт</button>
+                </div>
 
-<p class="screen1__text">Delicious and innovative vegan recipes that are easy to prepare and family-friendly. From simple dinners to breakfast and desserts, vegan cheeses, and more. ... Here, you will find quick and flavorful vegan recipes, as well as cooking tips</p>
-<button class="screen1__button">Выбрать рецепт</button>
-</div>
+                <div class="screen1__image-part">
+                    <img src="assets/img/screen1.jpg" alt="food-plate" />
+                </div>
+                <div class="screen1__advantages"></div>
+            </section>
 
+            <!-- Экран поиска рецептов -->
+            <section class="search-screen"></section>
+        </main>
+        <!-----Карточка рецепта------->
+        <section class="recipe">
+            <div class="recipe__container">
+                <div class="recipe__wrapper">
+                    <div class="recipe__description">
+                        <h3>Spiced Indian Yogurt (Chaas)</h3>
+                        <h4>Ingredients:</h4>
+                        <p>3 tablespoons plain yogurt</p>
+                        <p>4 cups water</p>
+                        <p>1/4 teaspoon black salt (see note)</p>
+                        <h4>Calories:</h4>
+                        <p>KJjkdfgdjgvhfhgfhbfgjdfgj</p>
+                        <p>dkjgvhskjh kfdjghsifduhgsh srt</p>
+                        <p>dskfjghsvjbzwtrbg sydfhg sjsfhwrtvurs</p>
+                        <a href="https://www.seriouseats.com/indian-chaas-spiced-buttermilk-recipe"><button class="recipe__btn">To the recipe</button></a>
+                    </div>
+                    <div class="recipe__img">
+                        <img
+                            src="https://www.seriouseats.com/thmb/DRqyfVoOtLO06OaIBx8R7Q08Dks=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__03__2014.09.0320Chaas-Mildly20Spiced20Buttermilk-5596b1c358e54a7194b8faaaf14fc082.jpg"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Футер -->
+        <footer class="footer">Футер</footer>
+        <!-- </div> -->
 
-<div class="screen1__image-part"><img src="assets/img/screen1.jpg" alt="food-plate"></div>
-<div class="screen1__advantages"></div>
-</section>
-
-<!-- Экран поиска рецептов -->
-<section class="search-screen">
-
-</section>
-    </main>
-
-
-    <!-- Футер -->
-<footer class="footer">
-Футер
-</footer>
-</div>
-
-
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
