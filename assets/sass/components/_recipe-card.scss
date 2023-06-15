@@ -1,0 +1,48 @@
+.recipe {
+    .recipe__container {
+        max-width: 1220px;
+        margin: 0 auto;
+    }
+    .recipe__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .recipe__description h3 {
+        font-size: 32px;
+        line-height: 40px;
+        @include text1;
+    }
+    .recipe__description h4 {
+        font-size: 20px;
+        line-height: 40px;
+        @include text1;
+    }
+    .recipe__description p {
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color-2;
+    }
+    .recipe__btn {
+        font-family: "Roboto";
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+        color: $background-color-1;
+        background: $background-color-2;
+        padding: 16px 51px 16px 37px;
+        border-radius: 0px;
+        border: none;
+        margin-top: 32px;
+        margin-left: 5px;
+        cursor: pointer;
+
+    }
+    .recipe__btn:active{
+        box-shadow: 2px 4px 4px rgba(77, 53, 29, 0.596);
+    }
+    .recipe__img img {
+        width: 600px;
+        border-radius: 10px;
+    }
+}
