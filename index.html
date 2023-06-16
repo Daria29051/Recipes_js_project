@@ -24,7 +24,7 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
 </div>
              
      <div class="screen1__image-part">
-       <img src="assets/img/screen1.jpg" alt="food-plate">
+       <img class="screen1__image" src="assets/img/screen1.jpg" alt="food-plate">
   </div>
   
   
@@ -50,7 +50,85 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
 
 
             <!-- Экран поиска рецептов -->
-            <section class="search-screen"></section>
+            <section class="search-screen">
+            <div class="main-search">
+            <input class="search-screen__item search-screen__main-search-input" type="text" placeholder="Find a recipe..."> 
+        </div>
+
+            <div class="cuisine-search">
+                <select class="search-screen__item" name="cuisine" id="cuisine-type">
+                    <option value="">-- Choose Cuisine --</option>
+                    <option value="american">American</option>
+                    <option value="asian">Asian</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="french">French</option>
+                    <option value="greek">Greek</option>
+                    <option value="indian">Indian</option>
+                    <option value="italian">Italian</option>
+                    <option value="japanese">Japanese</option>
+                    <option value="korean">Korean</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="world">World</option>
+                  </select>
+            </div>
+
+
+            <div class="dish-search">
+                <select class="search-screen__item" name="dish" id="dish-type">
+                    <option value="">-- Choose Dish Type --</option>
+                    <option value="starter">Starter</option>
+                    <option value="main course">Main Course</option>
+                    <option value="side dish">Side Dish</option>
+                    <option value="desserts">Desserts</option>
+                    <option value="condiments and sauces">Condiments and Sauces</option>
+                    <option value="drinks">Drinks</option>
+                    <option value="soup">Soup</option>
+                    <option value="pasta">Pasta</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="salad">Salad</option>
+                    <option value="sandwiches">Sandwiches</option>
+                    <option value="pastry">Pastry</option>
+                    <option value="preserve">Preserve</option>
+                    <option value="special occasions">Special occasions</option>
+                  </select>
+            </div>
+
+            <button class="search-screen__button">Search</button>
+
+            <div class="meal-search">
+                <p class="search-screen__subtitle">Choose Meal</p>
+                <p><input type="checkbox" name="dish-type" value="breakfast"> Breakfast</p>
+                <p><input type="checkbox" name="dish-type" value="brunch"> Brunch</p>
+                <p><input type="checkbox" name="dish-type" value="lunch/dinner"> Lunch/Dinner</p>
+                <p><input type="checkbox" name="dish-type" value="snack"> Snack</p>
+                <p><input type="checkbox" name="dish-type" value="teatime"> Teatime</p>
+            </div>
+
+
+            <div class="diet-search">
+                <p class="search-screen__subtitle">Choose Diet</p>
+                <p><input type="checkbox" name="diet-type" value="balanced"> Balanced</p>
+                <p><input type="checkbox" name="diet-type" value="high-fiber"> High-Fiber</p>
+                <p><input type="checkbox" name="diet-type" value="high-protein"> High-Protein</p>
+                <p><input type="checkbox" name="diet-type" value="low-carb"> Low-Carb</p>
+                <p><input type="checkbox" name="diet-type" value="low-fat"> Low-Fat</p>
+            </div>
+
+
+            <div class="extra-search">
+                <p class="search-screen__subtitle">Extra Params</p>
+                <p><input type="checkbox" name="extra-param" value="alcohol-free"> Alcohol-Free</p>
+                <p><input type="checkbox" name="extra-param" value="dairy-free"> Dairy-free</p>
+                <p><input type="checkbox" name="extra-param"value="gluten-free"> Gluten-free</p>
+                <p><input type="checkbox" name="extra-param" value="low-sugar"> Low-sugar</p>
+                <p><input type="checkbox" name="extra-param" value="No-oil-added"> No-oil-added</p>
+                <p><input type="checkbox" name="extra-param" value="pork-free"> Pork-free</p>
+                <p><input type="checkbox" name="extra-param" value="vegetarian"> Vegetarian</p>
+                <p><input type="checkbox" name="extra-param" value="vegan"> Vegan</p>
+            </div>
+            
+            
+        </section>
         </main>
       
       
