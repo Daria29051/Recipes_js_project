@@ -12,8 +12,6 @@
 .main-search {
     grid-column:1/8;
     grid-row: 1;
-
-
 }
 
 .search-screen__main-search-input {
@@ -69,4 +67,61 @@
     font-weight: 600;
     text-decoration: underline;
     margin-bottom: 5px;
+}
+
+ // Mobile styles
+ @media screen and (min-width:375px) and (max-width:1023px) {
+
+    .search-screen {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+        "main-search  main-search  main-search  main-search  main-search  main-search "
+        "cuisine-search cuisine-search cuisine-search dish-search  dish-search  dish-search "
+        "meal-search meal-search diet-search diet-search extra-search  extra-search "
+        "search-screen__button search-screen__button search-screen__button search-screen__button search-screen__button search-screen__button"
+        ;
+        width: 90%;
+        margin: auto;
+        gap: 20px;
+        margin-bottom: 2em;
+}
+
+.main-search {
+   grid-area:main-search ;
+}
+
+.search-screen__main-search-input {
+    width: 100%;
+    border: 2px solid $text-color-2;
+}
+
+.cuisine-search {
+    grid-area:cuisine-search ;
+}
+
+.dish-search {
+    grid-area:dish-search;
+}
+
+.meal-search {
+    grid-area:meal-search ;
+}
+
+.diet-search {
+    grid-area:diet-search;
+}
+
+.extra-search {
+    grid-area:extra-search ;
+}
+
+.search-screen__button {
+   grid-area: search-screen__button; 
+   width: 30%;
+   margin: auto;
+   height: 2em;
+}
+
 }
