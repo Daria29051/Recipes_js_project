@@ -65,7 +65,7 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
             <!-- Экран поиска рецептов -->
             <section class="search-screen">
             <div class="main-search">
-            <input class="search-screen__item search-screen__main-search-input" type="text" placeholder="Find a recipe..."> 
+            <input class="search-screen__item search-screen__main-search-input" id="recipe-input" type="text" placeholder="Find a recipe..."> 
         </div>
 
             <div class="cuisine-search">
@@ -108,17 +108,17 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
 
             <button class="search-screen__button">Search</button>
 
-            <div class="meal-search">
+            <div class="meal-search" id="meal-type">
                 <p class="search-screen__subtitle">Choose Meal</p>
-                <p><input type="checkbox" name="dish-type" value="breakfast"> Breakfast</p>
-                <p><input type="checkbox" name="dish-type" value="brunch"> Brunch</p>
-                <p><input type="checkbox" name="dish-type" value="lunch/dinner"> Lunch/Dinner</p>
-                <p><input type="checkbox" name="dish-type" value="snack"> Snack</p>
-                <p><input type="checkbox" name="dish-type" value="teatime"> Teatime</p>
+                <p><input type="checkbox" name="meal-type" value="breakfast"> Breakfast</p>
+                <p><input type="checkbox" name="meal-type" value="brunch"> Brunch</p>
+                <p><input type="checkbox" name="meal-type" value="lunch/dinner"> Lunch/Dinner</p>
+                <p><input type="checkbox" name="meal-type" value="snack"> Snack</p>
+                <p><input type="checkbox" name="meal-type" value="teatime"> Teatime</p>
             </div>
 
 
-            <div class="diet-search">
+            <div class="diet-search" id="diet-type">
                 <p class="search-screen__subtitle">Choose Diet</p>
                 <p><input type="checkbox" name="diet-type" value="balanced"> Balanced</p>
                 <p><input type="checkbox" name="diet-type" value="high-fiber"> High-Fiber</p>
@@ -128,7 +128,7 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
             </div>
 
 
-            <div class="extra-search">
+            <div class="extra-search" id="extra-param">
                 <p class="search-screen__subtitle">Extra Params</p>
                 <p><input type="checkbox" name="extra-param" value="alcohol-free"> Alcohol-Free</p>
                 <p><input type="checkbox" name="extra-param" value="dairy-free"> Dairy-free</p>
