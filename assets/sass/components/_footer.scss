@@ -1,0 +1,29 @@
+logo1{
+    height: 50px;
+    padding: 5px;
+}
+.footer_wrapper{
+    display: flex;
+    justify-content: space-around;
+    background-color: orangered;
+    margin: 5px;
+}
+.footer_slogan{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #F46A06;
+}
+.footer_rights{
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    margin-bottom: 5px;
+    color: rgba(0,0,0,0.5);
+}
+.button{
+    background-color: #F46A06;
+    border:#F46A06;
+    padding: 12px;
+    border-radius: 100px;
+}
