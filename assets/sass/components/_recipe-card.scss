@@ -8,7 +8,7 @@
         justify-content: flex-start;
     }
     .recipe__description{
-        padding-left: 1.5em;
+        padding-left: 2.5em;
         margin-right: 5%;
     }
     .recipe__description h3 {
@@ -28,26 +28,33 @@
         padding: 4px;
         color: $text-color-2;
     }
+    .recipe__btns{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 32px;
+        margin-left: 5px;
+    }
+    .fav__icon{
+        border: solid 1.5px rgb(255, 72, 0);
+        border-radius: 14px;
+        margin-left: 20px;
+    }
     .recipe__btn {
         font-family: "Roboto";
         font-weight: 700;
         font-size: 15px;
         line-height: 18px;
         color: $background-color-1;
-        background: $background-color-2;
+        background: orangered;
         padding: 16px 51px 16px 37px;
         border-radius: 0px;
         border: none;
-        margin-top: 32px;
-        margin-left: 5px;
         cursor: pointer;
     }
     .recipe__btn:active{
         box-shadow: 2px 4px 4px rgba(77, 53, 29, 0.596);
     }
-    .recipe__img{
-        padding: 1.5em;
-    }
+
     .recipe__img img {
         max-width: 80%;
         border-radius: 10px;
@@ -75,8 +82,12 @@
             margin-left: 15%;
         }
         .recipe__btn{
-            margin-left: 30%;
-            padding: 14px 34px 14px 34px;
+            padding: 6px 34px 6px 34px;
+            font-size: 12px;
+        }
+        .fav__icon{
+            max-width: 30px;
+            border-radius:10px;
         }
         .recipe__description h3 {
             font-size: 28px;
@@ -86,6 +97,9 @@
         }
         .recipe__description p {
             font-size: 15px;
+        }
+        .recipe__btns{
+            margin-left: 30%;
         }
     }
 }

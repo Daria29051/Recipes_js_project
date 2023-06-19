@@ -65,23 +65,22 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
             <!-- Экран поиска рецептов -->
             <section class="search-screen">
             <div class="main-search">
-            <input class="search-screen__item search-screen__main-search-input" type="text" placeholder="Find a recipe..."> 
+            <input class="search-screen__item search-screen__main-search-input" id="recipe-input" type="text" placeholder="Find a recipe..."> 
         </div>
 
             <div class="cuisine-search">
                 <select class="search-screen__item" name="cuisine" id="cuisine-type">
                     <option value="">-- Choose Cuisine --</option>
-                    <option value="american">American</option>
-                    <option value="asian">Asian</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="french">French</option>
-                    <option value="greek">Greek</option>
-                    <option value="indian">Indian</option>
-                    <option value="italian">Italian</option>
-                    <option value="japanese">Japanese</option>
-                    <option value="korean">Korean</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="world">World</option>
+                    <option value="American">American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="French">French</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Nordic">Nordic</option>
                   </select>
             </div>
 
@@ -89,36 +88,34 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
             <div class="dish-search">
                 <select class="search-screen__item" name="dish" id="dish-type">
                     <option value="">-- Choose Dish Type --</option>
-                    <option value="starter">Starter</option>
-                    <option value="main course">Main Course</option>
-                    <option value="side dish">Side Dish</option>
-                    <option value="desserts">Desserts</option>
-                    <option value="condiments and sauces">Condiments and Sauces</option>
-                    <option value="drinks">Drinks</option>
-                    <option value="soup">Soup</option>
-                    <option value="pasta">Pasta</option>
-                    <option value="pizza">Pizza</option>
-                    <option value="salad">Salad</option>
-                    <option value="sandwiches">Sandwiches</option>
-                    <option value="pastry">Pastry</option>
-                    <option value="preserve">Preserve</option>
-                    <option value="special occasions">Special occasions</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Main course">Main Course</option>
+                    <option value="Side dish">Side Dish</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Condiments and sauces">Condiments and Sauces</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Sandwiches">Sandwiches</option>
+                    <option value="Biscuits and cookies">Biscuits and cookies</option>
+                    <option value="Sweets">Sweets</option>
+                    <option value="Preserve">Preserve</option>
                   </select>
             </div>
 
             <button class="search-screen__button">Search</button>
 
-            <div class="meal-search">
+            <div class="meal-search" id="meal-type">
                 <p class="search-screen__subtitle">Choose Meal</p>
-                <p><input type="checkbox" name="dish-type" value="breakfast"> Breakfast</p>
-                <p><input type="checkbox" name="dish-type" value="brunch"> Brunch</p>
-                <p><input type="checkbox" name="dish-type" value="lunch/dinner"> Lunch/Dinner</p>
-                <p><input type="checkbox" name="dish-type" value="snack"> Snack</p>
-                <p><input type="checkbox" name="dish-type" value="teatime"> Teatime</p>
+                <p><input type="checkbox" name="meal-type" value="Breakfast"> Breakfast</p>
+                <p><input type="checkbox" name="meal-type" value="Dinner"> Dinner</p>
+                <p><input type="checkbox" name="meal-type" value="Lunch"> Lunch</p>
+                <p><input type="checkbox" name="meal-type" value="Snack"> Snack</p>
+                <p><input type="checkbox" name="meal-type" value="Teatime"> Teatime</p>
             </div>
 
 
-            <div class="diet-search">
+            <div class="diet-search" id="diet-type">
                 <p class="search-screen__subtitle">Choose Diet</p>
                 <p><input type="checkbox" name="diet-type" value="balanced"> Balanced</p>
                 <p><input type="checkbox" name="diet-type" value="high-fiber"> High-Fiber</p>
@@ -128,16 +125,16 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
             </div>
 
 
-            <div class="extra-search">
+            <div class="extra-search" id="health">
                 <p class="search-screen__subtitle">Extra Params</p>
-                <p><input type="checkbox" name="extra-param" value="alcohol-free"> Alcohol-Free</p>
-                <p><input type="checkbox" name="extra-param" value="dairy-free"> Dairy-free</p>
-                <p><input type="checkbox" name="extra-param"value="gluten-free"> Gluten-free</p>
-                <p><input type="checkbox" name="extra-param" value="low-sugar"> Low-sugar</p>
-                <p><input type="checkbox" name="extra-param" value="No-oil-added"> No-oil-added</p>
-                <p><input type="checkbox" name="extra-param" value="pork-free"> Pork-free</p>
-                <p><input type="checkbox" name="extra-param" value="vegetarian"> Vegetarian</p>
-                <p><input type="checkbox" name="extra-param" value="vegan"> Vegan</p>
+                <p><input type="checkbox" name="health" value="alcohol-free"> Alcohol-Free</p>
+                <p><input type="checkbox" name="health"  value="dairy-free"> Dairy-free</p>
+                <p><input type="checkbox" name="health" value="gluten-free"> Gluten-free</p>
+                <p><input type="checkbox" name="health"  value="low-sugar"> Low-sugar</p>
+                <p><input type="checkbox" name="health"  value="no-oil-added"> No-oil-added</p>
+                <p><input type="checkbox" name="health"  value="pork-free"> Pork-free</p>
+                <p><input type="checkbox" name="health"  value="vegetarian"> Vegetarian</p>
+                <p><input type="checkbox" name="health"  value="vegan"> Vegan</p>
             </div>
             
             
@@ -146,8 +143,9 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
       
       
         <!-----Карточка рецепта------->
+        
         <section class="recipe">
-            <div class="recipe__container">
+           <!-- <div class="recipe__container">
                 <div class="recipe__wrapper">
                     <div class="recipe__description">
                         <h3>Spiced Indian Yogurt (Chaas)</h3>
@@ -165,7 +163,10 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
                             <p>dskfjghsvjbzwtrbg sydfhg sjsfhwrtvurs</p>
                         </div>
                         </div>
+                        <div class="recipe__btns">
                         <a href="https://www.seriouseats.com/indian-chaas-spiced-buttermilk-recipe"><button class="recipe__btn">To the recipe</button></a>
+                        <img class="fav__icon" src="./assets/icons/add-static.svg">
+                        </div>
                     </div>
                     <div class="recipe__img">
                         <img
@@ -174,7 +175,7 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
                         />
                     </div>
                 </div>
-            </div>
+            </div>  -->
         </section>
       
       
