@@ -156,4 +156,4 @@ searchButton.addEventListener("click", getRecipe);
 
 // let url = `https://api.edamam.com/api/recipes/v2?app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627`;
 // `https://api.edamam.com/search?q=&app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627&diet=balanced&mealType=breakfast`
-{/* <img class="fav__icon" src="./assets/icons/add-static.svg"></img> */}
+
