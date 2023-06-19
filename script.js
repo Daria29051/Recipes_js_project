@@ -229,7 +229,7 @@ icons.forEach(icon => {
 }}
 )
 .catch (error => console.log(error));
-
+}
 
 // функция генерации url
 
@@ -305,7 +305,10 @@ function getRecipe() {
                   <p>${Math.round(recipe.recipe.calories)} cal</p>
               </div>
               </div>
+              <div class="recipe__btns">
               <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
+              <img class="fav__icon" src="./assets/icons/add-static.svg">
+                        </div>
           </div>
           <div class="recipe__img">
               <img
@@ -315,6 +318,35 @@ function getRecipe() {
           </div>
       </div>
       </div> `;
+      const icons = document.querySelectorAll('.fav__icon');
+icons.forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/add-hovered.svg';
+        } else {
+            icon.src = './assets/icons/added-static.svg';
+        }
+    })
+    icon.addEventListener('mouseout', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/add-static.svg';
+        } else {
+            icon.src = './assets/icons/added-hovered.svg';
+        }
+        
+    })
+    icon.addEventListener('click', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/added-hovered.svg';
+        } else {
+            icon.src = './assets/icons/add-static.svg';
+        }
+        
+    })
+})
         }
       })
   };
