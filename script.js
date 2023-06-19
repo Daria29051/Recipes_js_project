@@ -43,192 +43,11 @@ function getExtraParams() {
   console.log(extraParamsArray);
 }
 
-searchButton.addEventListener('click',getMealType );
-searchButton.addEventListener('click',getDietType );
-searchButton.addEventListener('click',getExtraParams);
+// searchButton.addEventListener('click',getMealType );
+// searchButton.addEventListener('click',getDietType );
+// searchButton.addEventListener('click',getExtraParams);
 
 
-
-// заполняем карточку рецепта
-function getRecipeByName() {
-    recipeContainer.innerHTML="";
-    fetch(`https://api.edamam.com/search?app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627&q=${recipeInput.value}`)
-    .then(response =>response.json())
-    .then(data => {
-    console.log(data);
-    const recipesArray = data.hits;
-    console.log(recipesArray);
-    for (let recipe of recipesArray) {
-    console.log(recipe);
-    console.log(recipe.recipe.label);
-    console.log(recipe.recipe.calories);
-    console.log(recipe.recipe.ingredients);
-    const ingredientsArray = recipe.recipe.ingredients;
-    const ingredientText=document.createElement('p'); //создаём элемент под вывод ингредиентов
-    for (let ingredient of ingredientsArray) {
-        console.log(ingredient.text);
-        ingredientText.innerText+=`${ingredient.text} <br>`
-    } //выводим текст каждого из ингредиентов
-    
-    recipeContainer.innerHTML+=`<div class="recipe__container">
-    <div class="recipe__wrapper">
-        <div class="recipe__description">
-            <h3>${recipe.recipe.label}</h3>
-            <div class="recipe__text">
-            <div class="recipe__ingredients">
-                <h4>Ingredients:</h4>
-                <p>${ingredientText.innerText}</p>
-            </div>
-            <div class="recipe__calories">
-                <h4>Calories:</h4>
-                <p>${Math.round(recipe.recipe.calories)} cal</p>
-            </div>
-            </div>
-            <div class="recipe__btns">
-        <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
-        <img class="fav__icon" src="./assets/icons/add-static.svg">
-                        </div>
-        </div>
-        <div class="recipe__img">
-            <img
-                src="${recipe.recipe.image}"
-                alt="recipe-image"
-            />
-        </div>
-    </div>
-    </div> `;
-    const icon = document.querySelector('.fav__icon');
-icon.addEventListener('mouseover', () => {
-    let srcString = icon.src;
-    if(srcString.endsWith('add-static.svg')){
-        icon.src = './assets/icons/add-hovered.svg';
-    } else {
-        icon.src = './assets/icons/added-static.svg';
-    }
-    
-})
-      
-//Альбина
-const icons = document.querySelectorAll('.fav__icon');
-icons.forEach(icon => {
-    icon.addEventListener('mouseover', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-hovered.svg';
-        } else {
-            icon.src = './assets/icons/added-static.svg';
-        }
-    })
-    icon.addEventListener('mouseout', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-static.svg';
-        } else {
-            icon.src = './assets/icons/added-hovered.svg';
-        }
-        
-    })
-    icon.addEventListener('click', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/added-hovered.svg';
-        } else {
-            icon.src = './assets/icons/add-static.svg';
-        }
-        
-    })
-})
-
-    }}
-    )
-    .catch (error => console.log(error));
-    }
-
-
-// функция получения данных с API
-function getRecipe() {
-recipeContainer.innerHTML="";
-fetch(`https://api.edamam.com/search?app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627&q=${recipeInput.value}&cuisineType=${cuisineTypeInput.value}&dishType=${dishTypeInput.value}`)
-.then(response =>response.json())
-.then(data => {
-console.log(data);
-const recipesArray = data.hits;
-console.log(recipesArray);
-for (let recipe of recipesArray) {
-console.log(recipe);
-console.log(recipe.recipe.label);
-console.log(recipe.recipe.calories);
-console.log(recipe.recipe.ingredients);
-const ingredientsArray = recipe.recipe.ingredients;
-const ingredientText=document.createElement('p'); //создаём элемент под вывод ингредиентов
-for (let ingredient of ingredientsArray) {
-    console.log(ingredient.text);
-    ingredientText.innerText+=`${ingredient.text} <br>`
-} //выводим текст каждого из ингредиентов
-
-recipeContainer.innerHTML+=`<div class="recipe__container">
-<div class="recipe__wrapper">
-    <div class="recipe__description">
-        <h3>${recipe.recipe.label}</h3>
-        <div class="recipe__text">
-        <div class="recipe__ingredients">
-            <h4>Ingredients:</h4>
-            <p>${ingredientText.innerText}</p>
-        </div>
-        <div class="recipe__calories">
-            <h4>Calories:</h4>
-            <p>${Math.round(recipe.recipe.calories)} cal</p>
-        </div>
-        </div>
-        <div class="recipe__btns">
-        <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
-        </div>
-    </div>
-    <div class="recipe__img">
-        <img
-            src="${recipe.recipe.image}"
-            alt="recipe-image"
-        />
-    </div>
-</div>
-</div> `;
-
- //Альбина
-const icons = document.querySelectorAll('.fav__icon');
-icons.forEach(icon => {
-    icon.addEventListener('mouseover', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-hovered.svg';
-        } else {
-            icon.src = './assets/icons/added-static.svg';
-        }
-    })
-    icon.addEventListener('mouseout', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-static.svg';
-        } else {
-            icon.src = './assets/icons/added-hovered.svg';
-        }
-        
-    })
-    icon.addEventListener('click', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/added-hovered.svg';
-        } else {
-            icon.src = './assets/icons/add-static.svg';
-        }
-        
-    })
-})
-
-
-}}
-)
-.catch (error => console.log(error));
-}
 
 // функция генерации url
 
@@ -265,7 +84,6 @@ function createUrl() {
   }
   console.log(url);
   return url;
-
 }
 
 
@@ -312,10 +130,7 @@ function getRecipe() {
                   <p>${Math.round(recipe.recipe.calories)} cal</p>
               </div>
               </div>
-              <div class="recipe__btns">
               <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
-              <img class="fav__icon" src="./assets/icons/add-static.svg">
-                        </div>
           </div>
           <div class="recipe__img">
               <img
@@ -325,7 +140,116 @@ function getRecipe() {
           </div>
       </div>
       </div> `;
-      const icons = document.querySelectorAll('.fav__icon');
+        }
+      })
+  };
+  
+
+
+  
+
+  // добавляем обработчик событий на Search
+searchButton.addEventListener("click", getRecipe);
+
+
+
+
+// let url = `https://api.edamam.com/api/recipes/v2?app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627`;
+// `https://api.edamam.com/search?q=&app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627&diet=balanced&mealType=breakfast`
+{/* <img class="fav__icon" src="./assets/icons/add-static.svg"></img> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Альбина
+const icons = document.querySelectorAll('.fav__icon');
 icons.forEach(icon => {
     icon.addEventListener('mouseover', () => {
         let srcString = icon.src;
@@ -354,21 +278,223 @@ icons.forEach(icon => {
         
     })
 })
-        }
-      })
-  };
-  
-
-
-  
-
-  // добавляем обработчик событий на Search
-searchButton.addEventListener("click", getRecipe);
 
 
 
 
-// let url = `https://api.edamam.com/api/recipes/v2?app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627`;
-// `https://api.edamam.com/search?q=&app_id=49cb99a1&app_key=6fdb65e8bebf7aae4729017d5d272627&diet=balanced&mealType=breakfast`
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Лена
