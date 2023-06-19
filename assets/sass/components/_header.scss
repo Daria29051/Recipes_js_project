@@ -23,22 +23,29 @@
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
     top: 0;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     overflow: auto;
-    background-color:orangered;
+    background-color:lightgrey;
 }
 .modal-content{
-    background-color: #F46A06;
     margin: 15% auto;
     padding: 20px;
-    border: 1px #F46A06;
-    width: 80%;
+    border: 1px #1a1919;
+    width: 60%;
 }
 .close{
     float: right;
     color: white;
     font-weight: bold;
+}
+#header_message{
+    border: none;
+    background-color: orangered;
+}
+.modal_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }

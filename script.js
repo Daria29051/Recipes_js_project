@@ -498,3 +498,18 @@ icons.forEach(icon => {
 
 
 //Лена
+let modal = document.getElementById ('myModal');
+let message = document.getElementById ('header_message');
+let span = document.getElementsByClassName ("close")[0];
+
+message.onclick = function () {
+  modal.style.display = "block";
+}
+span.onclick = function () {
+  modal.style.display = "none";
+}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
