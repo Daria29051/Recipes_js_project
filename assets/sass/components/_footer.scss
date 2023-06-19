@@ -27,3 +27,20 @@
     padding: 12px;
     border-radius: 100px;
 }
+.footer__icon-up {
+    position: fixed;
+    bottom: 15px;
+    right: 2%;
+    z-index: 1;
+    border: medium none;
+    background-image: none; 
+    background: transparent;
+}
+.footer__icon-up {
+    fill: #F46A06;
+    height: 60px;
+    width: 60px;
+}
+.logo1,.button,.footer_wrapper-us,.footer_wrapper-rules,.footer_wrapper-contacts{
+    cursor: pointer;
+}

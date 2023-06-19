@@ -3,7 +3,7 @@
 .recipe {
     .recipe__container {
         max-width: 1220px;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     .recipe__wrapper {
         display: flex;
@@ -58,7 +58,7 @@
         line-height: 18px;
         color: $background-color-1;
         background: orangered;
-        padding: 16px 51px 16px 37px;
+        padding: 15px 51px 15px 37px;
         border-radius: 0px;
         border: none;
         cursor: pointer;
