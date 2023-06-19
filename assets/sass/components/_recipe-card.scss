@@ -1,3 +1,5 @@
+
+
 .recipe {
     .recipe__container {
         max-width: 1220px;
@@ -6,6 +8,7 @@
     .recipe__wrapper {
         display: flex;
         justify-content: flex-start;
+        width: 90vw;
     }
     .recipe__description{
         padding-left: 2.5em;
@@ -34,10 +37,19 @@
         margin-top: 32px;
         margin-left: 5px;
     }
+
+    .fav__icon-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 90vw;
+    }
+
+    
     .fav__icon{
         border: solid 1.5px rgb(255, 72, 0);
         border-radius: 14px;
         margin-left: 20px;
+        cursor: pointer;
     }
     .recipe__btn {
         font-family: "Roboto";
