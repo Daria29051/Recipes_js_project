@@ -182,8 +182,7 @@ recipeContainer.innerHTML+=`<div class="recipe__container">
         </div>
         <div class="recipe__btns">
         <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
-        <img class="fav__icon" src="./assets/icons/add-static.svg">
-                        </div>
+        </div>
     </div>
     <div class="recipe__img">
         <img
