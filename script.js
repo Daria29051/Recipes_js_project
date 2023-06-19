@@ -286,6 +286,14 @@ function getRecipe() {
           console.log(recipe.recipe.ingredients);
           const ingredientsArray = recipe.recipe.ingredients;
           const ingredientText = document.createElement("p"); //создаём элемент под вывод ингредиентов
+          const favouriteIconContainer = document.createElement("div");//создаём контейнер для сердечка избранного
+          favouriteIconContainer.classList.add('fav__icon-container');
+          const favouriteIcon = document.createElement("img");//создаём элемент сердечко избранное
+          favouriteIcon.classList.add('fav__icon');
+          favouriteIcon.src='./assets/icons/add-static.svg';
+          favouriteIcon.title='Добавить в избранное';
+          favouriteIconContainer.appendChild(favouriteIcon);
+          recipeContainer.appendChild(favouriteIconContainer);
           for (let ingredient of ingredientsArray) {
             console.log(ingredient.text);
             ingredientText.innerText += `${ingredient.text} <br>`;
