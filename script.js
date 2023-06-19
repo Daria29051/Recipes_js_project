@@ -103,14 +103,14 @@ function getRecipe() {
           console.log(recipe.recipe.ingredients);
           const ingredientsArray = recipe.recipe.ingredients;
           const ingredientText = document.createElement("p"); //создаём элемент под вывод ингредиентов
-          const favouriteIconContainer = document.createElement("div");//создаём контейнер для сердечка избранного
-          favouriteIconContainer.classList.add('fav__icon-container');
-          const favouriteIcon = document.createElement("img");//создаём элемент сердечко избранное
-          favouriteIcon.classList.add('fav__icon');
-          favouriteIcon.src='./assets/icons/add-static.svg';
-          favouriteIcon.title='Добавить в избранное';
-          favouriteIconContainer.appendChild(favouriteIcon);
-          recipeContainer.appendChild(favouriteIconContainer);
+          // const favouriteIconContainer = document.createElement("div");//создаём контейнер для сердечка избранного
+          // favouriteIconContainer.classList.add('fav__icon-container');
+          // const favouriteIcon = document.createElement("img");//создаём элемент сердечко избранное
+          // favouriteIcon.classList.add('fav__icon');
+          // favouriteIcon.src='./assets/icons/add-static.svg';
+          // favouriteIcon.title='Добавить в избранное';
+          // favouriteIconContainer.appendChild(favouriteIcon);
+          // recipeContainer.appendChild(favouriteIconContainer);
           for (let ingredient of ingredientsArray) {
             console.log(ingredient.text);
             ingredientText.innerText += `${ingredient.text} <br>`;
@@ -130,7 +130,10 @@ function getRecipe() {
                   <p>${Math.round(recipe.recipe.calories)} cal</p>
               </div>
               </div>
+              <div class="recipe__btns">
               <a href="${recipe.recipe.url}" target="_blank"><button class="recipe__btn">To the recipe</button></a>
+              <img class="fav__icon" src="./assets/icons/add-static.svg">
+                        </div>
           </div>
           <div class="recipe__img">
               <img
@@ -140,6 +143,37 @@ function getRecipe() {
           </div>
       </div>
       </div> `;
+      //Альбина
+const icons = document.querySelectorAll('.fav__icon');
+icons.forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/add-hovered.svg';
+        } else {
+            icon.src = './assets/icons/added-static.svg';
+        }
+    })
+    icon.addEventListener('mouseout', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/add-static.svg';
+        } else {
+            icon.src = './assets/icons/added-hovered.svg';
+        }
+        
+    })
+    icon.addEventListener('click', () => {
+        let srcString = icon.src;
+        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
+            icon.src = './assets/icons/added-hovered.svg';
+        } else {
+            icon.src = './assets/icons/add-static.svg';
+        }
+        
+    })
+})
+
         }
       })
   };
@@ -248,36 +282,6 @@ searchButton.addEventListener("click", getRecipe);
 
 
 
-//Альбина
-const icons = document.querySelectorAll('.fav__icon');
-icons.forEach(icon => {
-    icon.addEventListener('mouseover', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-hovered.svg';
-        } else {
-            icon.src = './assets/icons/added-static.svg';
-        }
-    })
-    icon.addEventListener('mouseout', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/add-static.svg';
-        } else {
-            icon.src = './assets/icons/added-hovered.svg';
-        }
-        
-    })
-    icon.addEventListener('click', () => {
-        let srcString = icon.src;
-        if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
-            icon.src = './assets/icons/added-hovered.svg';
-        } else {
-            icon.src = './assets/icons/add-static.svg';
-        }
-        
-    })
-})
 
 
 
