@@ -7,6 +7,13 @@ const searchButton = document.querySelector(".search-screen__button"); //кно�
 let mealTypeArray =[]; //массив со значениями meal-type
 let dietTypeArray =[]; //массив со значениями diet-type
 let extraParamsArray =[];//массив со значениями diet-type
+let count;
+if(localStorage.length == 0){
+    count = 0;
+} else {
+    count = Math.max.apply(null, Object.keys(localStorage));
+}
+
 
 //функция выбора meal-type
 function getMealType() {
@@ -113,11 +120,14 @@ function getRecipe() {
             console.log(ingredient.text);
             ingredientText.innerText += `${ingredient.text} <br>`;
           }; //выводим текст каждого из ингредиентов
-  
+          let recipeIUri= recipe.recipe.uri;
+          let recipeId = recipeIUri.substring(recipeIUri.indexOf('#') + 1);
+          console.log(recipeId);
           recipeContainer.innerHTML += `<div class="recipe__container">
       <div class="recipe__wrapper">
           <div class="recipe__description">
               <h3>${recipe.recipe.label}</h3>
+              <div class="recipe__id" hidden>${recipeId}</div>
               <div class="recipe__text">
               <div class="recipe__ingredients">
                   <h4>Ingredients:</h4>
@@ -166,7 +176,22 @@ icons.forEach(icon => {
         let srcString = icon.src;
         if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
             icon.src = './assets/icons/added-hovered.svg';
+            count++;
+            let iconParent = icon.parentNode.parentNode;
+            let id = (iconParent.querySelector('.recipe__id')).innerHTML;
+            let key = `${count}`;
+            let value = id;
+            localStorage.setItem(key, value);
         } else {
+          let iconParent = icon.parentNode.parentNode;
+            let id = (iconParent.querySelector('.recipe__id')).innerHTML;
+            let recipeKey;
+            for(let key in localStorage){
+              if(localStorage[key] == id){
+                recipeKey = key;
+              }
+            }
+            localStorage.removeItem(recipeKey);
             icon.src = './assets/icons/add-static.svg';
         }
         
