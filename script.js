@@ -96,6 +96,12 @@ function getRecipe() {
         console.log(data);
         const recipesArray = data.hits;
         console.log(recipesArray);
+
+        if (recipesArray.length===0) {
+          recipeContainer.classList.add('error');
+          throw new Error('Recipe is not found');
+        }
+
         for (let recipe of recipesArray) {
           console.log(recipe);
           console.log(recipe.recipe.label);
@@ -103,14 +109,6 @@ function getRecipe() {
           console.log(recipe.recipe.ingredients);
           const ingredientsArray = recipe.recipe.ingredients;
           const ingredientText = document.createElement("p"); //создаём элемент под вывод ингредиентов
-          // const favouriteIconContainer = document.createElement("div");//создаём контейнер для сердечка избранного
-          // favouriteIconContainer.classList.add('fav__icon-container');
-          // const favouriteIcon = document.createElement("img");//создаём элемент сердечко избранное
-          // favouriteIcon.classList.add('fav__icon');
-          // favouriteIcon.src='./assets/icons/add-static.svg';
-          // favouriteIcon.title='Добавить в избранное';
-          // favouriteIconContainer.appendChild(favouriteIcon);
-          // recipeContainer.appendChild(favouriteIconContainer);
           for (let ingredient of ingredientsArray) {
             console.log(ingredient.text);
             ingredientText.innerText += `${ingredient.text} <br>`;
@@ -143,6 +141,7 @@ function getRecipe() {
           </div>
       </div>
       </div> `;
+      
       //Альбина
 const icons = document.querySelectorAll('.fav__icon');
 icons.forEach(icon => {
@@ -176,6 +175,13 @@ icons.forEach(icon => {
 
         }
       })
+
+      
+  .catch(err=> {
+    recipeContainer.innerHTML = `An error occured: ${err.message}. Please, try again.`;
+        console.log(`An error occured: ${err.message}. Please, try again.`);  
+        }
+        )
   };
   
 

@@ -125,3 +125,26 @@
 }
 
 
+
+
+
+
+// стили ошибок (Даша)
+.error {
+    text-align: center;
+    vertical-align: middle;
+    color: red;
+    margin-bottom: 2em;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 1024px) and (min-width:768px){
+    .error { font-size: 1em; 
+    }
+}
+
+@media screen and (max-width: 767px){
+    .error { font-size: 0.8em; 
+    }
+
+}
