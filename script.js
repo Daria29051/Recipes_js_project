@@ -571,3 +571,30 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+// проверка имейла на валидность
+const submit = document.getElementById ("submit");
+const emailCheck = document.getElementById ("e-mail");
+const expression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let span1 = document.querySelector ('.span1');
+submit.onclick = function (e) {
+  e.preventDefault();
+  if(!validate (expression, emailCheck.value)){
+    notValid (submit, span1, 'Your email is invalid');
+  }else{
+    valid (submit, span1, 'You have successfully subscribed');
+  }
+
+  function validate (regex, submit) {
+    return regex.test(submit);
+  }
+  function notValid (submit, el, mess) {
+    submit.classList.add('is-invalid');
+    el.innerHTML = mess;
+  }
+  function valid (submit, el, mess) {
+    submit.classList.remove('is-invalid');
+    submit.classList.add('is-valid');
+    el.innerHTML = mess;
+  }
+}
+
