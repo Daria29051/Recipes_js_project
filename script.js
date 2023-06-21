@@ -50,9 +50,10 @@ function getExtraParams() {
   console.log(extraParamsArray);
 }
 
-// searchButton.addEventListener('click',getMealType );
-// searchButton.addEventListener('click',getDietType );
-// searchButton.addEventListener('click',getExtraParams);
+// вешаем обработчик на кнопку Search
+searchButton.addEventListener('click',getMealType );
+searchButton.addEventListener('click',getDietType );
+searchButton.addEventListener('click',getExtraParams);
 
 
 
