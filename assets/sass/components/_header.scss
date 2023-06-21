@@ -13,7 +13,14 @@
 .logo,.header_home,.header_all,.header_faves,.header_login,.header_message{
     cursor: pointer;
 }
-.modal{
+
+@media screen and (min-width:375px) and (max-width:1023px) {
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.message-modal{
     display: none;
     position: fixed;
     z-index: 1;

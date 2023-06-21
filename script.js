@@ -50,9 +50,10 @@ function getExtraParams() {
   console.log(extraParamsArray);
 }
 
-// searchButton.addEventListener('click',getMealType );
-// searchButton.addEventListener('click',getDietType );
-// searchButton.addEventListener('click',getExtraParams);
+// вешаем обработчик на кнопку Search
+searchButton.addEventListener('click',getMealType );
+searchButton.addEventListener('click',getDietType );
+searchButton.addEventListener('click',getExtraParams);
 
 
 
@@ -225,6 +226,126 @@ searchButton.addEventListener("click", getRecipe);
 {/* <img class="fav__icon" src="./assets/icons/add-static.svg"></img> */}
 
 
+
+// МОДАЛЬНОЕ ОКНО LOGIN (ДАША)
+const loginHeaderButton = document.querySelector('.header_login');
+loginHeaderButton.addEventListener('click', function () {
+  const loginModal = document.getElementById('loginModal');
+  const signInContent=`<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+      <h5 class="modal-title" id="loginModalLabel">Sign in</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+    </div>
+    <div class="modal-body">
+    <div class="login__email-part">
+    <label for="login__email">Email address</label>
+    <input type="email" id="login__email" class="login__email" />
+  </div>
+
+  <div class="login__password-part">
+    <label for="login__password">Password</label>
+    <input type="password" id="login__password" class="login__password" />
+  </div>
+
+  <div class="login-button-part">
+    <button class="login__login-button" type="button">Login</button>
+  </div>
+
+  <a class="login__forgot-password" href="#!">Forgot password?</a>
+  <p class="login__no-account"">Don't have an account? <a class="login__register-link" href="#!">Register here</a></p>
+    </div>
+    <div class="modal-footer">
+    <a href="#!" class="login__terms-of-use">Terms of use.</a>
+    <a href="#!" class="login__privacy-policy">Privacy policy</a>
+    <img class="login__img" src="assets/img/login-img.jpg">
+    </div>
+  </div>
+</div>`;
+const registerContent= `<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+  <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+    <h5 class="modal-title" id="loginModalLabel">Register</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+  </div>
+  <div class="modal-body">
+
+  <div class="login__name-part">
+  <label for="login__name">First Name</label>
+  <input type="text" id="login__name" class="login__name" />
+</div>
+
+<div class="surname__name-part">
+<label for="login__surname">Second Name</label>
+<input type="text" id="login__surname" class="login__surname" />
+</div>
+
+
+  <div class="login__email-part">
+  <label for="login__email">Email address</label>
+  <input type="email" id="login__email" class="login__email" />
+</div>
+
+<div class="login__password-part">
+  <label for="login__password">Password</label>
+  <input type="password" id="login__password" class="login__password" />
+</div>
+
+<div class="login__confirm-password-part">
+<label for="login__confirm-password">Confirm Password</label>
+<input type="password" id="login__confirm-password" class="login__confirm-password" />
+</div>
+
+<div class="login-button-part">
+  <button class="login__login-button" type="button">Register</button>
+</div>
+
+
+<p class="login__no-account"">Already have an account? <a class="login__register-link" href="#!">Sign in here</a></p>
+  </div>
+  <div class="modal-footer">
+  <a href="#!" class="login__terms-of-use">Terms of use.</a>
+  <a href="#!" class="login__privacy-policy">Privacy policy</a>
+  <img class="login__img" src="assets/img/login-img.jpg">
+  </div>
+</div>
+</div>`;
+
+  loginModal.innerHTML = signInContent;
+  let loginModalWindow = new bootstrap.Modal(loginModal);
+  loginModalWindow.show();
+
+  // уведомление об успешном логине
+  const loginButton = document.querySelector('.login__login-button');
+  loginButton.onclick = function() {
+    loginModal.innerHTML = `<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+        <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+  
+    </div>
+  </div>`
+  }
+
+
+  // меняем текст по клику на ссылку регистрации
+  const registerLink = document.querySelector('.login__register-link');
+ registerLink.onclick = function (){
+  if (loginModal.innerHTML !== registerContent) { 
+    loginModal.innerHTML = registerContent;
+  } 
+
+else {
+  loginModal.innerHTML = signInContent;
+}
+ }
+  
+})
 
 
 
