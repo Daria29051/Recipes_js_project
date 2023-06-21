@@ -3,23 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link type="image/x-icon" href="/assets/icons/free-icon-restaurant-6122680.png" rel="shortcut icon">
+        <link
+            type="image/x-icon"
+            href="/assets/icons/free-icon-restaurant-6122680.png"
+            rel="shortcut icon"
+        />
         <title>Love and Recipes</title>
     </head>
     <link rel="stylesheet" href="assets/sass/style.css" />
     <body>
-        <!-- <div class="wrapper"> -->
-        <!-- Хедер -->
         <header class="header">
             <div>
-                <img class="logo" src="assets/icons/free-icon-restaurant-6122680.png">       
+                <img
+                    class="logo"
+                    src="assets/icons/free-icon-restaurant-6122680.png"
+                />
             </div>
-            <div class="header_home">
-                Home
-            </div> 
-            <div class="header_all">
-                All recipes
-            </div>
+            <div class="header_home">Home</div>
+            <div class="header_all">All recipes</div>
             <div class="header_faves">My favourites</div>
             <div class="header_login">Login</div>
             <button id="header_message">Leave us a message</button>
@@ -27,49 +28,20 @@
                 <div class="modal-content">
                     <span class="close"></span>
                     <div class="modal_wrapper">
-                        <input placeholder="Your name"></input>
-                        <input placeholder="Your email"></input>
-                        <input placeholder="Leave us a message"></input>
+                        <input placeholder="Your name" />
+                        <input placeholder="Your email" />
+                        <input placeholder="Leave us a message" />
                     </div>
                 </div>
             </div>
         </header>
-        <h1>Favourites</h1>
-        <div>You haven't added any favourites yet</div>
-        <section class="recipe">
-            <!-- <div class="recipe__container">
-                 <div class="recipe__wrapper">
-                     <div class="recipe__description">
-                         <div class="recipe__id"></div> 
-                         <h3>Spiced Indian Yogurt (Chaas)</h3>
-                         <div class="recipe__text">
-                         <div class="recipe__ingredients">
-                             <h4>Ingredients:</h4>
-                             <p>3 tablespoons plain yogurt</p>
-                             <p>4 cups water</p>
-                             <p>1/4 teaspoon black salt (see note)</p>
-                         </div>
-                         <div class="recipe__calories">
-                             <h4>Calories:</h4>
-                             <p>KJjkdfgdjgvhfhgfhbfgjdfgj</p>
-                             <p>dkjgvhskjh kfdjghsifduhgsh srt</p>
-                             <p>dskfjghsvjbzwtrbg sydfhg sjsfhwrtvurs</p>
-                         </div>
-                         </div>
-                         <div class="recipe__btns">
-                         <a href="https://www.seriouseats.com/indian-chaas-spiced-buttermilk-recipe"><button class="recipe__btn">To the recipe</button></a>
-                         <img class="fav__icon" src="./assets/icons/add-static.svg">
-                         </div>
-                     </div>
-                     <div class="recipe__img">
-                         <img
-                             src="https://www.seriouseats.com/thmb/DRqyfVoOtLO06OaIBx8R7Q08Dks=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__03__2014.09.0320Chaas-Mildly20Spiced20Buttermilk-5596b1c358e54a7194b8faaaf14fc082.jpg"
-                             alt=""
-                         />
-                     </div>
-                 </div>
-             </div>  -->
-         </section>
+        <div class="favourites">
+            <h1 class="favourites__h">Your favourites</h1>
+            <div class="favourites__msg">
+                You haven't added any favourites yet
+            </div>
+            <section class="recipe"></section>
+        </div>
         <footer class="footer">
             <div class="footer_wrapper">
                 <div class="footer_wrapper-us">About us</div>
@@ -78,10 +50,13 @@
             </div>
             <div class="footer_slogan">
                 <div>
-                    <img class="logo1" src="assets/icons/free-icon-restaurant-6122680.png">
+                    <img
+                        class="logo1"
+                        src="assets/icons/free-icon-restaurant-6122680.png"
+                    />
                 </div>
                 <div>Our best culinary ideas to you</div>
-                <input type="email" placeholder="E-mail" class="e-mail">
+                <input type="email" placeholder="E-mail" class="e-mail" />
                 <button class="button">Subscribe</button>
                 <div>Subscribe to get a new recipe every day</div>
                 <a class="footer__button-up" href="#" title="page up">
@@ -90,11 +65,8 @@
                     </svg>
                 </a>
             </div>
-            <div class="footer_rights">© All rights reserved.</div> 
+            <div class="footer_rights">© All rights reserved.</div>
         </footer>
-        
-    <!-- </div> -->
-    
-            <script src="script2.js"></script>
-        </body>
-    </html>
+        <script src="favourites.js"></script>
+    </body>
+</html>
