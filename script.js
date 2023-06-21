@@ -7,11 +7,11 @@ const searchButton = document.querySelector(".search-screen__button"); //кно�
 let mealTypeArray =[]; //массив со значениями meal-type
 let dietTypeArray =[]; //массив со значениями diet-type
 let extraParamsArray =[];//массив со значениями diet-type
-let count;
+let count; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
 if(localStorage.length == 0){
     count = 0;
 } else {
-    count = Math.max.apply(null, Object.keys(localStorage));
+    count = Math.max.apply(null, Object.keys(localStorage)); // счётчик принимает значение максимального ключа, имеющегося в локальном хранилище
 }
 
 
@@ -154,7 +154,8 @@ function getRecipe() {
       </div> `;
       
       //Альбина
-const icons = document.querySelectorAll('.fav__icon');
+const icons = document.querySelectorAll('.fav__icon'); // иконки добавления в избранное
+//добавление событий на иконки избранного
 icons.forEach(icon => {
     icon.addEventListener('mouseover', () => {
         let srcString = icon.src;
@@ -178,11 +179,11 @@ icons.forEach(icon => {
         if(srcString.endsWith('add-hovered.svg') || srcString.endsWith('add-static.svg')){
             icon.src = './assets/icons/added-hovered.svg';
             count++;
-            let iconParent = icon.parentNode.parentNode;
+            let iconParent = icon.parentNode.parentNode; // через родительский узел кликнутой иконки извлекаем id рецепта
             let id = (iconParent.querySelector('.recipe__id')).innerHTML;
             let key = `${count}`;
             let value = id;
-            localStorage.setItem(key, value);
+            localStorage.setItem(key, value); // добавление id рецепта в локальное хранилище
         } else {
           let iconParent = icon.parentNode.parentNode;
             let id = (iconParent.querySelector('.recipe__id')).innerHTML;
@@ -192,7 +193,7 @@ icons.forEach(icon => {
                 recipeKey = key;
               }
             }
-            localStorage.removeItem(recipeKey);
+            localStorage.removeItem(recipeKey); // удаление рецепта из локального хранилища
             icon.src = './assets/icons/add-static.svg';
         }
         
@@ -653,12 +654,37 @@ else {
 
 
 
-//Лена
-let modal = document.getElementById ('myModal');
-let message = document.getElementById ('header_message');
-let span = document.getElementsByClassName ("close")[0];
+//Лена модальное окно для введения сообщения
+// let modal = document.getElementById ('myModal');
+// let message = document.getElementById ('header_message');
+// let span = document.getElementsByClassName ("close")[0];
 
-message.onclick = function () {
+// message.onclick = function () {
+//   modal.style.display = "block";
+// }
+// span.onclick = function () {
+//   modal.style.display = "none";
+// }
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+let message = document.getElementById ('header_message');
+let modal = document.getElementById ('myModal');
+message.addEventListener('click', () => {
+  modal.style.display = "block";
+  modal.innerHTML += `<div class="modal-content">
+  <span class="close"></span>
+    <div class="modal_wrapper">
+      <input placeholder="Your name" class="input"></input>
+      <input placeholder="Your email" class="input" id="emailUser"></input>
+      <input placeholder="Leave us a message" class="input"></input>
+    </div> 
+    <button class="btn_send">Send</button>
+  </div>`;
+  let span = document.getElementsByClassName ("close")[0];
+  message.onclick = function () {
   modal.style.display = "block";
 }
 span.onclick = function () {
@@ -669,6 +695,81 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+let btnSend = document.getElementsByClassName('.btn_send');
+btnSend.addEventListener ('click', () => {
+  let forms = document.querySelectorAll ('.input');
+  let emailUser = document.getElementById ('emailUser');
+
+function validateEmail(emailUser) {
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+forms.onsubmit = function () {
+  let emailVal = emailUser.value;
+  let emptyInputs = Array.from(forms).filter(input => input.value === '');
+  forms.forEach (function (input) {
+    if (input.value === '' ){
+      input.classList.add('error');
+      console.log('not filled');
+    }else{
+      input.classList.remove('error');
+    }
+  });
+  if (emptyInputs.length !== 0) {
+    console.log('not filled');
+    return false;
+  }
+
+  if (!validateEmail (emailValid)) {
+    console.log ('email not valid');
+    return false;
+  }
+}
+})
+})
+
+//проверка заполнения данных в модальном окне
+// let forms = document.querySelectorAll ('.input');
+// let emailUser = document.getElementById ('emailUser');
+
+// function validateEmail(emailUser) {
+//   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return re.test(String(email).toLowerCase());
+// }
+
+// forms.onsubmit = function () {
+//   let emailVal = emailUser.value;
+//   let emptyInputs = Array.from(forms).filter(input => input.value === '');
+//   forms.forEach (function (input) {
+//     if (input.value === '' ){
+//       input.classList.add('error');
+//       console.log('not filled');
+//     }else{
+//       input.classList.remove('error');
+//     }
+//   });
+//   if (emptyInputs.length !== 0) {
+//     console.log('not filled');
+//     return false;
+//   }
+
+//   if (!validateEmail (emailValid)) {
+//     console.log ('email not valid');
+//     return false;
+//   }
+// }
+
+// let btnSend = document.getElementsByClassName('.btn_send');
+// btnSend.addEventListener ('click', () => {
+//   if ( document.getElementById('userName').value == "" ) {
+//     alert ( "Please fill in your name" ); valid = false;
+//   }
+//   return valid;
+// })
+
+
+
 // проверка имейла на валидность
 const submit = document.getElementById ("submit");
 const emailCheck = document.getElementById ("e-mail");
