@@ -13,7 +13,13 @@
 .logo,.header_home,.header_all,.header_faves,.header_login,.header_message{
     cursor: pointer;
 }
-
+.header a{
+    text-decoration: none;
+    color: $text-color-1;
+}
+.header a:hover{
+    text-decoration: underline;
+}
 @media screen and (min-width:375px) and (max-width:1023px) {
     .header{
         display: flex;
