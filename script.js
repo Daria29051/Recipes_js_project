@@ -251,7 +251,7 @@ loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
   <input type="password" class="login__password" />
 </div>
 </form>
-
+<span class="login__error"></span>
 <div class="login-button-part">
   <button class="login__login-button" type="button">Login</button>
 </div>
@@ -270,9 +270,34 @@ loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
 let loginModalWindow = new bootstrap.Modal(loginModal);
 loginModalWindow.show();
 
-  // уведомление об успешном логине на начальной форме
-  const loginButton = document.querySelector('.login__login-button');
-  loginButton.onclick = function() {
+const loginButton = document.querySelector('.login__login-button');//кнопка Login
+loginButton.addEventListener('click', checkValidity);
+
+// функция проверки правильности заполнения
+function checkValidity () {
+  let errors = [];
+  const emailInput = document.querySelector('.login__email'); //поле ввода email
+  const passwordInput = document.querySelector('.login__password'); //поле ввода password
+  const reEmail=/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;//регулярное выражение проверки мейла
+  const errorField = document.querySelector('.login__error'); //поле вывода ошибок
+  if (emailInput.value ==='') {
+    errors.push(`Please, fill in email.`);
+  }
+  if (passwordInput.value ==='') {
+    errors.push(`Please, fill in password.`);
+  } 
+  
+  if (reEmail.test(emailInput.value)!==true && emailInput.value!=='') {
+    errors.push(`Email is not valid.`);
+    
+  }
+  if (passwordInput.value.length < 8) {
+    errors.push(`Please, enter 8-digit password.`);
+  }
+
+  errorField.innerHTML= errors.join('<br>');
+  
+  if (errors.length === 0) {
     loginModal.innerHTML = `<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -280,10 +305,26 @@ loginModalWindow.show();
         <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
       </div>
-  
     </div>
   </div>`
-  }
+}
+}
+
+
+  // уведомление об успешном логине на начальной форме
+
+  // loginButton.onclick = function() {
+  //   loginModal.innerHTML = `<div class="modal-dialog">
+  //   <div class="modal-content">
+  //     <div class="modal-header">
+  //     <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+  //       <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
+  //       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+  //     </div>
+  
+  //   </div>
+  // </div>`
+  // }
 
   // меняем форму по клику на ссылку регистрации
  const registerLink = document.querySelector('.login__register-link');//кнопка Login/Register
@@ -386,7 +427,6 @@ loginButton.onclick = function() {
 }
 
 })
-
 
 })
 
@@ -764,7 +804,7 @@ forms.onsubmit = function () {
     return false;
   }
 
-  if (!validateEmail (emailValid)) {
+  if (!validateEmail (emailVal)) {
     console.log ('email not valid');
     return false;
   }
