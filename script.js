@@ -228,96 +228,47 @@ searchButton.addEventListener("click", getRecipe);
 
 
 // МОДАЛЬНОЕ ОКНО LOGIN (ДАША)
-const loginHeaderButton = document.querySelector('.header_login');
+const loginHeaderButton = document.querySelector('.header_login'); //кнопка Login в header
 loginHeaderButton.addEventListener('click', function () {
-  const loginModal = document.getElementById('loginModal');
-  const signInContent=`<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-    <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
-      <h5 class="modal-title" id="loginModalLabel">Sign in</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-    </div>
-    <div class="modal-body">
-    <div class="login__email-part">
-    <label for="login__email">Email address</label>
-    <input type="email" id="login__email" class="login__email" />
-  </div>
-
-  <div class="login__password-part">
-    <label for="login__password">Password</label>
-    <input type="password" id="login__password" class="login__password" />
-  </div>
-
-  <div class="login-button-part">
-    <button class="login__login-button" type="button">Login</button>
-  </div>
-
-  <a class="login__forgot-password" href="#!">Forgot password?</a>
-  <p class="login__no-account"">Don't have an account? <a class="login__register-link" href="#!">Register here</a></p>
-    </div>
-    <div class="modal-footer">
-    <a href="#!" class="login__terms-of-use">Terms of use.</a>
-    <a href="#!" class="login__privacy-policy">Privacy policy</a>
-    <img class="login__img" src="assets/img/login-img.jpg">
-    </div>
-  </div>
-</div>`;
-const registerContent= `<div class="modal-dialog">
+const loginModal = document.getElementById('loginModal');
+loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
 <div class="modal-content">
   <div class="modal-header">
   <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
-    <h5 class="modal-title" id="loginModalLabel">Register</h5>
+    <h5 class="modal-title" id="loginModalLabel">Sign in</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
   </div>
   <div class="modal-body">
-
-  <div class="login__name-part">
-  <label for="login__name">First Name</label>
-  <input type="text" id="login__name" class="login__name" />
-</div>
-
-<div class="surname__name-part">
-<label for="login__surname">Second Name</label>
-<input type="text" id="login__surname" class="login__surname" />
-</div>
-
-
   <div class="login__email-part">
   <label for="login__email">Email address</label>
-  <input type="email" id="login__email" class="login__email" />
+  <input type="email" class="login__email" />
 </div>
 
 <div class="login__password-part">
   <label for="login__password">Password</label>
-  <input type="password" id="login__password" class="login__password" />
+  <input type="password" class="login__password" />
 </div>
-
-<div class="login__confirm-password-part">
-<label for="login__confirm-password">Confirm Password</label>
-<input type="password" id="login__confirm-password" class="login__confirm-password" />
-</div>
+</form>
 
 <div class="login-button-part">
-  <button class="login__login-button" type="button">Register</button>
+  <button class="login__login-button" type="button">Login</button>
 </div>
 
-
-<p class="login__no-account"">Already have an account? <a class="login__register-link" href="#!">Sign in here</a></p>
+<a class="login__forgot-password" href="#!">Forgot password?</a>
   </div>
   <div class="modal-footer">
+    <p class="login__no-account">Don't have an account?</p>
+ <a class="login__register-link" href="#!">Register here</a>
   <a href="#!" class="login__terms-of-use">Terms of use.</a>
   <a href="#!" class="login__privacy-policy">Privacy policy</a>
   <img class="login__img" src="assets/img/login-img.jpg">
   </div>
 </div>
 </div>`;
+let loginModalWindow = new bootstrap.Modal(loginModal);
+loginModalWindow.show();
 
-  loginModal.innerHTML = signInContent;
-  let loginModalWindow = new bootstrap.Modal(loginModal);
-  loginModalWindow.show();
-
-  // уведомление об успешном логине
+  // уведомление об успешном логине на начальной форме
   const loginButton = document.querySelector('.login__login-button');
   loginButton.onclick = function() {
     loginModal.innerHTML = `<div class="modal-dialog">
@@ -332,19 +283,109 @@ const registerContent= `<div class="modal-dialog">
   </div>`
   }
 
+  // меняем форму по клику на ссылку регистрации
+ const registerLink = document.querySelector('.login__register-link');//кнопка Login/Register
+ registerLink.addEventListener('click', function() {
+ 
+  if (this.innerText==='Register here') {
+  this.innerText = 'Sign in here';
+  const modalTitle = document.querySelector('.modal-title');
+  modalTitle.innerText = `Register`;
+  const noAccount = document.querySelector('.login__no-account');
+  noAccount.innerText = `Already have an account?`;
+  const modalBody = document.querySelector('.modal-body');
+  modalBody.innerHTML = `<form>
+  <div class="login__name-part">
+  <label for="login__name">First Name</label>
+  <input type="text" id="login__name" class="login__name" />
+</div>
 
-  // меняем текст по клику на ссылку регистрации
-  const registerLink = document.querySelector('.login__register-link');
- registerLink.onclick = function (){
-  if (loginModal.innerHTML !== registerContent) { 
-    loginModal.innerHTML = registerContent;
-  } 
+<div class="surname__name-part">
+<label for="login__surname">Second Name</label>
+<input type="text" id="login__surname" class="login__surname" />
+</div>
 
-else {
-  loginModal.innerHTML = signInContent;
+
+  <div class="login__email-part">
+  <label for="login__email">Email address</label>
+  <input type="email" class="login__email" />
+</div>
+
+<div class="login__password-part">
+  <label for="login__password">Password</label>
+  <input type="password" class="login__password" />
+</div>
+
+<div class="login__confirm-password-part">
+<label for="login__confirm-password">Confirm Password</label>
+<input type="password" id="login__confirm-password" class="login__confirm-password" />
+</div>
+
+<div class="login-button-part">
+  <button class="login__register-button" type="button">Register</button>
+</div>
+</form>`;
+
+// вешаем обработчик на кнопку Register
+const registerButton = document.querySelector('.login__register-button');
+registerButton.onclick = function() {
+  loginModal.innerHTML = `<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+      <p class="modal-title" id="loginModalLabel">You have successfully registered.</p>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+    </div>
+
+  </div>
+</div>`
 }
- }
-  
+
+}   else {
+  this.innerText = 'Register here';
+  const modalTitle = document.querySelector('.modal-title');
+  modalTitle.innerText = `Sign in`;
+  const noAccount = document.querySelector('.login__no-account');
+  noAccount.innerText = `Don't have an account?`;
+  const modalBody = document.querySelector('.modal-body');
+  modalBody.innerHTML =`<form> <div class="login__email-part">
+  <label for="login__email">Email address</label>
+  <input type="email" class="login__email" />
+</div>
+
+<div class="login__password-part">
+  <label for="login__password">Password</label>
+  <input type="password" class="login__password" />
+</div>
+
+<div class="login-button-part">
+  <button class="login__login-button" type="button">Login</button>
+</div>
+
+<a class="login__forgot-password" href="#!">Forgot password?</a>
+</form>`
+
+
+
+// вешаем обработчик на кнопку Login
+const loginButton = document.querySelector('.login__login-button');
+loginButton.onclick = function() {
+  loginModal.innerHTML = `<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
+      <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+    </div>
+
+  </div>
+</div>`
+}
+}
+
+})
+
+
 })
 
 
