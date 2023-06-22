@@ -231,7 +231,12 @@ searchButton.addEventListener("click", getRecipe);
 
 // МОДАЛЬНОЕ ОКНО LOGIN (ДАША)
 const loginHeaderButton = document.querySelector('.header_login'); //кнопка Login в header
-loginHeaderButton.addEventListener('click', function () {
+
+// вешаем обработчик событий (вызов модального окна по клику на пункт Login меню)
+loginHeaderButton.addEventListener('click', createLoginModal);
+
+//ФУНКЦИЯ-СБОРЩИК МОДАЛЬНОГО ОКНА
+function createLoginModal() {
 const loginModal = document.getElementById('loginModal');
 loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
 <div class="modal-content">
@@ -241,17 +246,33 @@ loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
   </div>
   <div class="modal-body">
+  <div class="login__name-part hidden">
+  <label for="login__name">First Name</label>
+  <input type="text" id="login__name" class="login__name" />
+</div>
+
+<div class="login__surname-part hidden">
+<label for="login__surname">Last Name</label>
+<input type="text" id="login__surname" class="login__surname" />
+</div>
+
   <div class="login__email-part">
   <label for="login__email">Email address</label>
-  <input type="email" class="login__email" />
+  <input type="email" class="login__email" id="login__email" />
 </div>
 
 <div class="login__password-part">
   <label for="login__password">Password</label>
   <input type="password" class="login__password" />
 </div>
-</form>
 
+<div class="login__confirm-password-part hidden">
+<label for="login__confirm-password">Confirm Password</label>
+<input type="password" id="login__confirm-password" class="login__confirm-password" />
+</div>
+
+</form>
+<span class="login__error"></span>
 <div class="login-button-part">
   <button class="login__login-button" type="button">Login</button>
 </div>
@@ -270,9 +291,102 @@ loginModal.innerHTML = `<form><div class="modal-dialog" id="loginModalSignIn">
 let loginModalWindow = new bootstrap.Modal(loginModal);
 loginModalWindow.show();
 
-  // уведомление об успешном логине на начальной форме
-  const loginButton = document.querySelector('.login__login-button');
-  loginButton.onclick = function() {
+//добавляем обработчики событий (изменение формы Sign in / Register и проверка валидности формы)
+const registerLink = document.querySelector('.login__register-link');// ссылка смены формы Sign in / Register
+registerLink.addEventListener('click', changeForm);
+const loginButton = document.querySelector('.login__login-button');//кнопка Login
+loginButton.addEventListener('click', checkValidity);
+
+// переменные
+const firstName = document.querySelector('.login__name-part'); //блок First Name
+const lastName = document.querySelector('.login__surname-part');//блок Last Name
+const confirmPassword = document.querySelector('.login__confirm-password-part'); //блок Confirm Password
+const forgotPassword = document.querySelector('.login__forgot-password'); // forgot your password
+
+// ФУНКЦИЯ ИЗМЕНЕНИЯ ФОРМЫ SIGN IN /REGISTER
+function changeForm() {
+  // скрываем/показываем  доп поля в форме регистрации
+  firstName.classList.toggle('hidden');
+  lastName.classList.toggle('hidden');
+  confirmPassword.classList.toggle('hidden');
+
+  // меняем название кнопки Login/Register
+  if (loginButton.innerText==='Login') {
+    loginButton.innerText='Register';
+  } else {
+    loginButton.innerText='Login';
+  }
+
+  // скрываем/показваем фразу Forgot your password?
+  forgotPassword.classList.toggle('hidden');
+  
+  //меняем Title
+  const title = document.querySelector('.modal-title');
+  if (title.innerText==='Sign in') {
+    title.innerText='Register';
+  } else {
+    title.innerText='Sign in';
+  }
+//меняем фразу have account/don`t have an account
+const noAccount = document.querySelector('.login__no-account');
+if (noAccount.innerText===`Don't have an account?`) {
+  noAccount.innerText=`Already have an account?`;
+} else {
+  noAccount.innerText=`Don't have an account?`;
+}
+
+//меняем название cссылки Sign in here/Register here
+const registerLink =document.querySelector('.login__register-link');
+if (registerLink.innerText==='Register here') {
+  registerLink.innerText='Sign in here';
+} else {
+  registerLink.innerText='Register here';
+}
+}
+
+
+// ФУНКЦИЯ ПРОВЕРКИ ВАЛИДНОСТИ ФОРМЫ
+function checkValidity () {
+  let errors = [];
+  const emailInput = document.querySelector('.login__email'); //input ввода email
+  const passwordInput = document.querySelector('.login__password'); //input ввода password
+  const firstNameInput = document.querySelector('.login__name');//input ввода first name
+  const lastNameInput = document.querySelector('.login__surname');//input ввода last name
+  const confirmPasswordInput = document.querySelector('.login__confirm-password');//input ввода confirm-password
+  const reEmail=/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;//регулярное выражение проверки мейла
+  const errorField = document.querySelector('.login__error'); //поле вывода ошибок
+  if (firstName.classList.contains('hidden')===false && firstNameInput.value ==='') {
+    errors.push(`Please, fill in your First Name.`);
+  }
+
+  if (lastName.classList.contains('hidden')===false && lastNameInput.value ==='') {
+    errors.push(`Please, fill in your Last Name.`);
+  }
+
+  if (emailInput.value ==='') {
+    errors.push(`Please, fill in your email.`);
+  }
+  
+  if (reEmail.test(emailInput.value)!==true) {
+    errors.push(`Email is not valid.`);
+  }
+
+  if (passwordInput.value ==='') {
+    errors.push(`Please, fill in password.`);
+  } 
+
+  if (passwordInput.value.length < 8) {
+    errors.push(`Please, enter 8-digit password.`);
+  }
+
+  if (confirmPassword.classList.contains('hidden')===false && passwordInput.value !== confirmPasswordInput.value) {
+    errors.push('Passwords don`t match each other.');
+  }
+
+  errorField.innerHTML= errors.join('<br>');
+  
+  
+  if (errors.length === 0 && loginButton.innerText==='Login') {
     loginModal.innerHTML = `<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -280,57 +394,9 @@ loginModalWindow.show();
         <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
       </div>
-  
     </div>
   </div>`
-  }
-
-  // меняем форму по клику на ссылку регистрации
- const registerLink = document.querySelector('.login__register-link');//кнопка Login/Register
- registerLink.addEventListener('click', function() {
- 
-  if (this.innerText==='Register here') {
-  this.innerText = 'Sign in here';
-  const modalTitle = document.querySelector('.modal-title');
-  modalTitle.innerText = `Register`;
-  const noAccount = document.querySelector('.login__no-account');
-  noAccount.innerText = `Already have an account?`;
-  const modalBody = document.querySelector('.modal-body');
-  modalBody.innerHTML = `<form>
-  <div class="login__name-part">
-  <label for="login__name">First Name</label>
-  <input type="text" id="login__name" class="login__name" />
-</div>
-
-<div class="surname__name-part">
-<label for="login__surname">Second Name</label>
-<input type="text" id="login__surname" class="login__surname" />
-</div>
-
-
-  <div class="login__email-part">
-  <label for="login__email">Email address</label>
-  <input type="email" class="login__email" />
-</div>
-
-<div class="login__password-part">
-  <label for="login__password">Password</label>
-  <input type="password" class="login__password" />
-</div>
-
-<div class="login__confirm-password-part">
-<label for="login__confirm-password">Confirm Password</label>
-<input type="password" id="login__confirm-password" class="login__confirm-password" />
-</div>
-
-<div class="login-button-part">
-  <button class="login__register-button" type="button">Register</button>
-</div>
-</form>`;
-
-// вешаем обработчик на кнопку Register
-const registerButton = document.querySelector('.login__register-button');
-registerButton.onclick = function() {
+} else if (errors.length === 0 && loginButton.innerText==='Register') {
   loginModal.innerHTML = `<div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -338,57 +404,14 @@ registerButton.onclick = function() {
       <p class="modal-title" id="loginModalLabel">You have successfully registered.</p>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
     </div>
-
   </div>
 </div>`
 }
 
-}   else {
-  this.innerText = 'Register here';
-  const modalTitle = document.querySelector('.modal-title');
-  modalTitle.innerText = `Sign in`;
-  const noAccount = document.querySelector('.login__no-account');
-  noAccount.innerText = `Don't have an account?`;
-  const modalBody = document.querySelector('.modal-body');
-  modalBody.innerHTML =`<form> <div class="login__email-part">
-  <label for="login__email">Email address</label>
-  <input type="email" class="login__email" />
-</div>
-
-<div class="login__password-part">
-  <label for="login__password">Password</label>
-  <input type="password" class="login__password" />
-</div>
-
-<div class="login-button-part">
-  <button class="login__login-button" type="button">Login</button>
-</div>
-
-<a class="login__forgot-password" href="#!">Forgot password?</a>
-</form>`
-
-
-
-// вешаем обработчик на кнопку Login
-const loginButton = document.querySelector('.login__login-button');
-loginButton.onclick = function() {
-  loginModal.innerHTML = `<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-    <img class="modal-logo" src="assets/icons/free-icon-restaurant-6122680.png">
-      <p class="modal-title" id="loginModalLabel">You have successfully logged in.</p>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-    </div>
-
-  </div>
-</div>`
-}
 }
 
-})
 
-
-})
+}
 
 
 
@@ -764,7 +787,7 @@ forms.onsubmit = function () {
     return false;
   }
 
-  if (!validateEmail (emailValid)) {
+  if (!validateEmail (emailVal)) {
     console.log ('email not valid');
     return false;
   }

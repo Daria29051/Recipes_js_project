@@ -24,3 +24,13 @@
 .login__no-account, .login__register-link {
     color: #393f81;
 }
+
+.hidden {
+    display: none;
+}
+
+.login__error {
+    font-size: 0.8em;
+    color: red;
+}
+
