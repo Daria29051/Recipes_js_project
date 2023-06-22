@@ -63,6 +63,8 @@ function getRecipeById(id) {
       const icons = document.querySelectorAll(".fav__icon"); // иконки добавления в избранное
             //добавление событий на иконки избранного
             icons.forEach((icon) => {
+                let iconParent = icon.parentNode.parentNode; // через родительский узел кликнутой иконки извлекаем id рецепта
+                let id = iconParent.querySelector(".recipe__id").innerHTML;
                 icon.addEventListener("mouseover", () => {
                     let srcString = icon.src;
                     if (srcString.endsWith("add-static.svg")) {
@@ -90,14 +92,10 @@ function getRecipeById(id) {
                     ) {
                         icon.src = "./assets/icons/added-hovered.svg";
                         count++;
-                        let iconParent = icon.parentNode.parentNode; // через родительский узел кликнутой иконки извлекаем id рецепта
-                        let id = iconParent.querySelector(".recipe__id").innerHTML;
                         let key = `${count}`;
                         let value = id;
                         localStorage.setItem(key, value); // добавление id рецепта в локальное хранилище
                     } else {
-                        let iconParent = icon.parentNode.parentNode;
-                        let id = iconParent.querySelector(".recipe__id").innerHTML;
                         let recipeKey;
                         for (let key in localStorage) {
                             if (localStorage[key] == id) {
