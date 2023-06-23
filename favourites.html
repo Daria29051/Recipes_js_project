@@ -12,6 +12,8 @@
     </head>
     <link rel="stylesheet" href="assets/sass/style.css" />
     <body>
+
+        <!-- хедер -->
         <header class="header">
             <div>
                 <img
@@ -19,14 +21,16 @@
                     src="assets/icons/free-icon-restaurant-6122680.png"
                 />
             </div>
-            <div class="header_home">Home</div>
-            <div class="header_all">All recipes</div>
-            <div class="header_faves">My favourites</div>
+            <div class="header_home"><a href="index.html">Home</a></div>
+            <div class="header_all"><a href="index.html#search-screen">All Recipes</a></div>
+            <div class="header_faves"><a href="favourites.html">My favourites</a></div>
             <div class="header_login">Login</div>
             <button id="header_message">Leave us a message</button>
             <div id="myModal" class="modal">
             </div>
         </header>
+
+        <!-- осн часть -->
         <div class="favourites">
             <h1 class="favourites__h">Your favourites</h1>
             <div class="favourites__msg">
@@ -34,6 +38,10 @@
             </div>
             <section class="recipe"></section>
         </div>
+
+
+
+<!-- футер -->
         <footer class="footer">
             <div class="footer_wrapper">
                 <div class="footer_wrapper-us">About us</div>
@@ -51,14 +59,22 @@
                 <input type="email" placeholder="E-mail" class="e-mail" />
                 <button class="button">Subscribe</button>
                 <div>Subscribe to get a new recipe every day</div>
-                <a class="footer__button-up" href="#" title="page up">
-                    <svg class="footer__icon-up">
-                        <use xlink:href="assets/icons/sprite.svg#iconUp"></use>
-                    </svg>
-                </a>
-            </div>
-            <div class="footer_rights">© All rights reserved.</div>
+            <a class="footer__button-up" href="#" title="page up">
+                <svg class="footer__icon-up">
+                    <use xlink:href="#arrow-up-short"></use>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="arrow-up-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z" />
+                    </symbol>
+                </svg>
+            </a>
+        </div>
+        <div class="span1"></div>
+        <div class="footer_rights">© All rights reserved.</div> 
         </footer>
+
+        
         <script src="favourites.js"></script>
     </body>
 </html>

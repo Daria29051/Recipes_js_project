@@ -17,26 +17,22 @@
                 <img class="logo" src="assets/icons/free-icon-restaurant-6122680.png">       
             </div>
             <div class="header_home">
-                Home
+               <a href="index.html">Home</a> 
             </div> 
             <div class="header_all">
-                All recipes
+               <a href="index.html#search-screen">All recipes</a> 
             </div>
             <div class="header_faves"><a href="favourites.html">My favourites</a></div>
             <div class="header_login">Login</div>
             <button id="header_message">Leave us a message</button>
+
+            <!-- обертка для модального окна send a message -->
             <div id="myModal" class="message-modal">
-                <!-- <div class="modal-content">
-                    <span class="close"></span>
-                    <div class="modal_wrapper">
-                        <input placeholder="Your name" class="input"></input>
-                        <input placeholder="Your email" class="input" id="emailUser"></input>
-                        <input placeholder="Leave us a message" class="input"></input>
-                    </div> 
-                    <button class="btn_send">Send</button>
-                </div>  -->
+
             </div>
         </header>
+
+
         <!-- Основная часть -->
         <main class="main-container">
 <!-- Первый экран -->
@@ -46,7 +42,9 @@
 
 <p class="screen1__text text">Delicious and innovative recipes that are easy to prepare and family-friendly. From simple dinners to breakfast and desserts, vegan cheeses, and more.
 Here you will find quick and flavorful recipes, as well as cooking tips.</p>
+<form action="#search-screen">
 <button class="screen1__button">Choose recipe</button>
+</form>
 </div>
              
      <div class="screen1__image-part">
@@ -76,7 +74,7 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
 
 
             <!-- Экран поиска рецептов -->
-            <section class="search-screen">
+            <section class="search-screen" id="search-screen">
             <div class="main-search">
             <input class="search-screen__item search-screen__main-search-input" id="recipe-input" type="text" placeholder="Find a recipe..."> 
         </div>
@@ -158,37 +156,6 @@ Here you will find quick and flavorful recipes, as well as cooking tips.</p>
         <!-----Карточка рецепта------->
         
         <section class="recipe">
-           <!-- <div class="recipe__container">
-                <div class="recipe__wrapper">
-                    <div class="recipe__description">
-                        <h3>Spiced Indian Yogurt (Chaas)</h3>
-                        <div class="recipe__text">
-                        <div class="recipe__ingredients">
-                            <h4>Ingredients:</h4>
-                            <p>3 tablespoons plain yogurt</p>
-                            <p>4 cups water</p>
-                            <p>1/4 teaspoon black salt (see note)</p>
-                        </div>
-                        <div class="recipe__calories">
-                            <h4>Calories:</h4>
-                            <p>KJjkdfgdjgvhfhgfhbfgjdfgj</p>
-                            <p>dkjgvhskjh kfdjghsifduhgsh srt</p>
-                            <p>dskfjghsvjbzwtrbg sydfhg sjsfhwrtvurs</p>
-                        </div>
-                        </div>
-                        <div class="recipe__btns">
-                        <a href="https://www.seriouseats.com/indian-chaas-spiced-buttermilk-recipe"><button class="recipe__btn">To the recipe</button></a>
-                        <img class="fav__icon" src="./assets/icons/add-static.svg">
-                        </div>
-                    </div>
-                    <div class="recipe__img">
-                        <img
-                            src="https://www.seriouseats.com/thmb/DRqyfVoOtLO06OaIBx8R7Q08Dks=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__03__2014.09.0320Chaas-Mildly20Spiced20Buttermilk-5596b1c358e54a7194b8faaaf14fc082.jpg"
-                            alt=""
-                        />
-                    </div>
-                </div>
-            </div>  -->
         </section>
       
       <!-- Обертка модального окна Login -->
