@@ -18,9 +18,11 @@ let count; //вспомогательный счётчик для генерир
 const loginHeaderButton = document.querySelector('.header_login'); //кнопка Login в header
 
 //ПЕРЕМЕННЫЕ ДЛЯ МОДАЛЬНОГО ОКНА SEND A MESSAGE
-let message = document.getElementById ('header_message'); ///кнопка SEND A MESSAGE в header
-let modal = document.getElementById ('myModal'); //'поле для вставки модального окна
+const message = document.getElementById ('header_message'); ///кнопка SEND A MESSAGE в header
 
+
+//ПЕРЕМЕННЫЕ ПРОВЕРКИ НА ВАЛИДНОСТЬ SUBSCRIBE В FOOTER
+const submit = document.getElementById ("submit"); //кнопка subscribe в футере
 
 if(localStorage.length == 0){
     count = 0;
@@ -665,24 +667,6 @@ function checkValidity () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //ЛЕНА
 
 // вешаем обработчик событий на пункт меню Send a message для показа модал окна
@@ -690,6 +674,7 @@ message.addEventListener('click', createMessageModal);
 
 //ФУНКЦИЯ ОТРИСОВКИ МОДАЛЬНОГО ОКНА SEND A MESSAGE
 function createMessageModal() {
+  const modal = document.getElementById ('myModal'); //поле для вставки модального окна
   modal.style.display = "block";
   modal.innerHTML = `<div class="modal-content">
   <span class="close"></span>
@@ -765,12 +750,17 @@ function validateEmail(emailUser) {
 
 
 // ПРОВЕРКА МЕЙЛА НА ВАЛИДНОСТЬ (FOOTER)
-const submit = document.getElementById ("submit");
-const emailCheck = document.getElementById ("e-mail");
-const expression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let span1 = document.querySelector ('.span1');
-submit.onclick = function (e) {
+
+
+
+submit.addEventListener('click', subscribeCheckValidity);
+
+function subscribeCheckValidity(e){
   e.preventDefault();
+  const emailCheck = document.getElementById ("e-mail");
+  const expression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const span1 = document.querySelector ('.span1');
+ 
   if(!validate (expression, emailCheck.value)){
     notValid (submit, span1, 'Your email is invalid.');
   }else{
@@ -790,4 +780,6 @@ submit.onclick = function (e) {
     el.innerHTML = mess;
   }
 }
+
+
 

@@ -1,10 +1,10 @@
-const recipeContainer = document.querySelector(".recipe"); //элемент-контейнер для вставки карточки рецепта
+const recipeContainer1 = document.querySelector(".recipe"); //элемент-контейнер для вставки карточки рецепта
 const favouritesMessage = document.querySelector(".favourites__msg"); // сообщение об отсутствии добавленных фаворитов
-let count; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
+let count1; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
 if (localStorage.length == 0) {
-    count = 0;
+    count1 = 0;
 } else {
-    count = Math.max.apply(null, Object.keys(localStorage)); // счётчик принимает значение максимального ключа, имеющегося в локальном хранилище
+    count1 = Math.max.apply(null, Object.keys(localStorage)); // счётчик принимает значение максимального ключа, имеющегося в локальном хранилище
     favouritesMessage.hidden = true;
 }
 for (let key in localStorage) {
@@ -16,7 +16,7 @@ for (let key in localStorage) {
 }
 // функция вывода карточки рецепта
 function getRecipeById(id) {
-    recipeContainer.innerHTML = "";
+    recipeContainer1.innerHTML = "";
     fetch(
         `https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=9b9922f0&app_key=9a7c84f1906467f9c52cc89461237793`
     )
@@ -30,7 +30,7 @@ function getRecipeById(id) {
             } //выводим текст каждого из ингредиентов
             let recipeIUri = currentRecipe.uri;
             let recipeId = recipeIUri.substring(recipeIUri.indexOf("#") + 1);
-            recipeContainer.innerHTML += `<div class="recipe__container">
+            recipeContainer1.innerHTML += `<div class="recipe__container">
       <div class="recipe__wrapper">
           <div class="recipe__description">
               <h3>${currentRecipe.label}</h3>
@@ -91,8 +91,8 @@ function getRecipeById(id) {
                         srcString.endsWith("add-static.svg")
                     ) {
                         icon.src = "./assets/icons/added-hovered.svg";
-                        count++;
-                        let key = `${count}`;
+                        count1++;
+                        let key = `${count1}`;
                         let value = id;
                         localStorage.setItem(key, value); // добавление id рецепта в локальное хранилище
                     } else {
@@ -109,3 +109,16 @@ function getRecipeById(id) {
             })
         })
 }
+
+
+//ВЫВОД МОДАЛЬНОГО ОКНА LOGIN
+const loginHeaderButton1 = document.querySelector('.header_login'); //кнопка Login в header
+loginHeaderButton1.addEventListener('click', createLoginModal);
+
+//ВЫВОД МОДАЛЬНОГО ОКНА SEND A MESSAGE
+const message1 = document.getElementById ('header_message'); ///кнопка Send a message в header
+message1.addEventListener('click', createMessageModal);
+
+//ПРОВЕРКА ВАЛИДНОСТИ SUBSCRIBE В FOOTER
+const submit1 = document.getElementById ("submit"); //кнопка subscribe в footer
+submit1.addEventListener('click', subscribeCheckValidity);
