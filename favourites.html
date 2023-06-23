@@ -9,10 +9,12 @@
             rel="shortcut icon"
         />
         <title>Love and Recipes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/sass/style.css" />
     </head>
-    <link rel="stylesheet" href="assets/sass/style.css" />
+  
     <body>
-
+<!-- <div class="wrapper"> -->
         <!-- хедер -->
         <header class="header">
             <div>
@@ -26,8 +28,9 @@
             <div class="header_faves"><a href="favourites.html">My favourites</a></div>
             <div class="header_login">Login</div>
             <button id="header_message">Leave us a message</button>
-            <div id="myModal" class="modal">
-            </div>
+
+            <!-- обертка для модального окна send a message -->
+            <div id="myModal" class="message-modal">
         </header>
 
         <!-- осн часть -->
@@ -39,42 +42,44 @@
             <section class="recipe"></section>
         </div>
 
-
+      <!-- Обертка модального окна Login -->
+      <div id="loginModal" class=" login-modal modal fade"  tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      </div>
 
 <!-- футер -->
-        <footer class="footer">
-            <div class="footer_wrapper">
-                <div class="footer_wrapper-us">About us</div>
-                <div class="footer_wrapper-rules">Rules</div>
-                <div class="footer_wrapper-contacts">Contacts</div>
-            </div>
-            <div class="footer_slogan">
-                <div>
-                    <img
-                        class="logo1"
-                        src="assets/icons/free-icon-restaurant-6122680.png"
-                    />
-                </div>
-                <div>Our best culinary ideas to you</div>
-                <input type="email" placeholder="E-mail" class="e-mail" />
-                <button class="button">Subscribe</button>
-                <div>Subscribe to get a new recipe every day</div>
-            <a class="footer__button-up" href="#" title="page up">
-                <svg class="footer__icon-up">
-                    <use xlink:href="#arrow-up-short"></use>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                    <symbol id="arrow-up-short" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z" />
-                    </symbol>
-                </svg>
-            </a>
+<footer class="footer">
+    <div class="footer_wrapper">
+        <div class="footer_wrapper-us">About us</div>
+        <div class="footer_wrapper-rules">Rules</div>
+        <div class="footer_wrapper-contacts">Contacts</div>
+    </div>
+    <div class="footer_slogan">
+        <div>
+            <img class="logo1" src="assets/icons/free-icon-restaurant-6122680.png">
         </div>
-        <div class="span1"></div>
-        <div class="footer_rights">© All rights reserved.</div> 
-        </footer>
-
+        <div>Our best culinary ideas to you</div>
+        <input type="text" placeholder="E-mail" id="e-mail">
+        <button class="button" id="submit">Subscribe</button>
         
+        <div>Subscribe to get a new recipe every day</div>
+        <a class="footer__button-up" href="#" title="page up">
+            <svg class="footer__icon-up">
+                <use xlink:href="#arrow-up-short"></use>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="arrow-up-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z" />
+                </symbol>
+            </svg>
+        </a>
+    </div>
+    <div class="span1"></div>
+    <div class="footer_rights">© All rights reserved.</div> 
+</footer>
+<!-- </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
         <script src="favourites.js"></script>
+        
     </body>
 </html>
