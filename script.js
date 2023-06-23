@@ -1,4 +1,5 @@
 // Даша
+// ПЕРЕМЕННЫЕ ДЛЯ БЛОКА ПОИСКА РЕЦЕПТОВ
 const recipeContainer = document.querySelector(".recipe"); //элемент-контейнер для вставки карточки рецепта
 const recipeInput = document.getElementById("recipe-input"); //инпут ввода названия рецепта
 const cuisineTypeInput = document.getElementById("cuisine-type"); //выпад список выбора cuisine-type
@@ -7,7 +8,20 @@ const searchButton = document.querySelector(".search-screen__button"); //кно�
 let mealTypeArray =[]; //массив со значениями meal-type
 let dietTypeArray =[]; //массив со значениями diet-type
 let extraParamsArray =[];//массив со значениями diet-type
+
+
+//ПЕРЕМЕННЫЕ ДЛЯ РАЗДЕЛА FAVOURITES
 let count; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
+
+
+//ПЕРЕМЕННЫЕ ДЛЯ МОДАЛЬНОГО ОКНА LOGIN
+const loginHeaderButton = document.querySelector('.header_login'); //кнопка Login в header
+
+//ПЕРЕМЕННЫЕ ДЛЯ МОДАЛЬНОГО ОКНА SEND A MESSAGE
+let message = document.getElementById ('header_message'); ///кнопка SEND A MESSAGE в header
+let modal = document.getElementById ('myModal'); //'поле для вставки модального окна
+
+
 if(localStorage.length == 0){
     count = 0;
 } else {
@@ -230,7 +244,7 @@ searchButton.addEventListener("click", getRecipe);
 
 
 // МОДАЛЬНОЕ ОКНО LOGIN (ДАША)
-const loginHeaderButton = document.querySelector('.header_login'); //кнопка Login в header
+
 
 // вешаем обработчик событий (вызов модального окна по клику на пункт Login меню)
 loginHeaderButton.addEventListener('click', createLoginModal);
@@ -297,7 +311,7 @@ registerLink.addEventListener('click', changeForm);
 const loginButton = document.querySelector('.login__login-button');//кнопка Login
 loginButton.addEventListener('click', checkValidity);
 
-// переменные
+// переменные формы Login
 const firstName = document.querySelector('.login__name-part'); //блок First Name
 const lastName = document.querySelector('.login__surname-part');//блок Last Name
 const confirmPassword = document.querySelector('.login__confirm-password-part'); //блок Confirm Password
@@ -409,8 +423,6 @@ function checkValidity () {
 }
 
 }
-
-
 }
 
 
@@ -671,82 +683,22 @@ function checkValidity () {
 
 
 
+//ЛЕНА
 
+// вешаем обработчик событий на пункт меню Send a message для показа модал окна
+message.addEventListener('click', createMessageModal);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Лена модальное окно для введения сообщения
-// let modal = document.getElementById ('myModal');
-// let message = document.getElementById ('header_message');
-// let span = document.getElementsByClassName ("close")[0];
-
-// message.onclick = function () {
-//   modal.style.display = "block";
-// }
-// span.onclick = function () {
-//   modal.style.display = "none";
-// }
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
-let message = document.getElementById ('header_message');
-let modal = document.getElementById ('myModal');
-message.addEventListener('click', () => {
+//ФУНКЦИЯ ОТРИСОВКИ МОДАЛЬНОГО ОКНА SEND A MESSAGE
+function createMessageModal() {
   modal.style.display = "block";
-  modal.innerHTML += `<div class="modal-content">
+  modal.innerHTML = `<div class="modal-content">
   <span class="close"></span>
     <div class="modal_wrapper">
-      <input placeholder="Your name" class="input"></input>
+      <input placeholder="Your name" class="input" id="name-input"></input>
       <input placeholder="Your email" class="input" id="emailUser"></input>
-      <input placeholder="Leave us a message" class="input"></input>
+      <input placeholder="Leave us a message" class="input" id="message-input"></input>
     </div> 
+    <span class="message-errors"></span>
     <button class="btn_send">Send</button>
   </div>`;
   let span = document.getElementsByClassName ("close")[0];
@@ -761,82 +713,58 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
-let btnSend = document.getElementsByClassName('.btn_send');
-btnSend.addEventListener ('click', () => {
-  let forms = document.querySelectorAll ('.input');
-  let emailUser = document.getElementById ('emailUser');
 
+let btnSend = document.querySelector('.btn_send'); //кнопка send
+
+// вешаем обработчки событий на кнопку send
+btnSend.addEventListener('click', sendMessage);
+
+//ФУНКЦИЯ ОТПРАВКИ СООБЩЕНИЯ
+function sendMessage() {
+  let userName = document.getElementById ('name-input'); //инпут name
+  let emailUser = document.getElementById ('emailUser'); //инпут mail
+  let userMessage = document.getElementById ('message-input'); //инпут message
+
+  //функция проверки мейла
 function validateEmail(emailUser) {
   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  return re.test(String(emailUser).toLowerCase());
 }
 
-forms.onsubmit = function () {
-  let emailVal = emailUser.value;
-  let emptyInputs = Array.from(forms).filter(input => input.value === '');
-  forms.forEach (function (input) {
-    if (input.value === '' ){
-      input.classList.add('error');
-      console.log('not filled');
-    }else{
-      input.classList.remove('error');
-    }
-  });
-  if (emptyInputs.length !== 0) {
-    console.log('not filled');
-    return false;
+
+  let errorsArray =[]; //массив с ошибками
+  let messageErrors = document.querySelector('.message-errors'); //поле вывода ошибок
+
+
+  if (userName.value ==='') {
+    errorsArray.push(`Please, fill in your name.`)
   }
 
-  if (!validateEmail (emailVal)) {
-    console.log ('email not valid');
-    return false;
+  if (emailUser.value ==='') {
+    errorsArray.push(`Please, fill in your email.`)
+  }
+
+  if (!validateEmail (emailUser.value)) {
+        console.log ('email not valid');
+        errorsArray.push(`Email is not valid.`) 
+      }
+
+  if (userMessage.value ==='') {
+        errorsArray.push(`Please, fill in your message.`)
+      }
+
+      messageErrors.innerHTML = errorsArray.join('<br>');
+
+  if (errorsArray.length === 0) {
+    modal.innerHTML=`<div class="modal-content">Your message is successfully sent.</div>`
   }
 }
-})
-})
-
-//проверка заполнения данных в модальном окне
-// let forms = document.querySelectorAll ('.input');
-// let emailUser = document.getElementById ('emailUser');
-
-// function validateEmail(emailUser) {
-//   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//   return re.test(String(email).toLowerCase());
-// }
-
-// forms.onsubmit = function () {
-//   let emailVal = emailUser.value;
-//   let emptyInputs = Array.from(forms).filter(input => input.value === '');
-//   forms.forEach (function (input) {
-//     if (input.value === '' ){
-//       input.classList.add('error');
-//       console.log('not filled');
-//     }else{
-//       input.classList.remove('error');
-//     }
-//   });
-//   if (emptyInputs.length !== 0) {
-//     console.log('not filled');
-//     return false;
-//   }
-
-//   if (!validateEmail (emailValid)) {
-//     console.log ('email not valid');
-//     return false;
-//   }
-// }
-
-// let btnSend = document.getElementsByClassName('.btn_send');
-// btnSend.addEventListener ('click', () => {
-//   if ( document.getElementById('userName').value == "" ) {
-//     alert ( "Please fill in your name" ); valid = false;
-//   }
-//   return valid;
-// })
+}
 
 
 
-// проверка имейла на валидность
+
+// ПРОВЕРКА МЕЙЛА НА ВАЛИДНОСТЬ (FOOTER)
 const submit = document.getElementById ("submit");
 const emailCheck = document.getElementById ("e-mail");
 const expression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -844,9 +772,9 @@ let span1 = document.querySelector ('.span1');
 submit.onclick = function (e) {
   e.preventDefault();
   if(!validate (expression, emailCheck.value)){
-    notValid (submit, span1, 'Your email is invalid');
+    notValid (submit, span1, 'Your email is invalid.');
   }else{
-    valid (submit, span1, 'You have successfully subscribed');
+    valid (submit, span1, 'You have successfully subscribed.');
   }
 
   function validate (regex, submit) {
