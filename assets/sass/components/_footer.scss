@@ -36,12 +36,11 @@
   border: medium none;
   background-image: none;
   background: transparent;
-}
-.footer__icon-up {
   fill: #f46a06;
   height: 60px;
   width: 60px;
 }
+
 .logo1,
 .button,
 .footer_wrapper-us,
@@ -55,6 +54,11 @@
   display: flex;
   justify-content: center;
 }
+
+.footer__button-up {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 375px) and (max-width: 1023px) {
   .footer_wrapper,
   .footer_slogan {

@@ -6,6 +6,7 @@
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -13,25 +14,27 @@ body {
   overflow-x: hidden;
 }
 
-.wrapper {
-  display: grid;
-  height: 100vh;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header header header"
-    "main main main"
-    "footer footer footer";
-}
 
-.header {
-  grid-area: header;
-}
+// .wrapper {
+//   display: grid;
+//   height: auto;
+//   grid-template-rows: auto 1fr auto;
+//   grid-template-columns: 1fr;
+//   grid-template-areas:
+//     "header header header"
+//     "main main main"
+//     "footer footer footer";
+// }
 
-.main {
-  grid-area: main;
-}
+// .header {
+//   grid-area: header;
+// }
 
-.footer {
-  grid-area: footer;
-}
+// .main {
+//   grid-area: main;
+// }
+
+// .footer {
+//   grid-area: footer;
+// }
+
