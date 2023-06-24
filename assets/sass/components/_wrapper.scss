@@ -1,36 +1,37 @@
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
-html, body {
-    overflow-x: hidden;  
+html,
+body {
+  overflow-x: hidden;
 }
 
 .wrapper {
-    display: grid;
-    height: 100vh;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr;
-    grid-template-areas:
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
     "header header header"
     "main main main"
     "footer footer footer";
 }
 
 .header {
-    grid-area: header;
+  grid-area: header;
 }
 
 .main {
-    grid-area: main;
+  grid-area: main;
 }
 
 .footer {
-    grid-area: footer;
+  grid-area: footer;
 }

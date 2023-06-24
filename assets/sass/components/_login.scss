@@ -1,36 +1,37 @@
 // Модальное окно логин
 .modal-logo {
-    width: 10%;
-    height: 10%;
-    margin-right: 10px;
+  width: 10%;
+  height: 10%;
+  margin-right: 10px;
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-footer img {
-    width: 100%;
+  width: 100%;
 }
 
-.login__login-button, .login__register-button {
-    margin-top: 10px;
-    background-color: $background-color-2;
-    color: $text-color-4;
-    border: none;
+.login__login-button,
+.login__register-button {
+  margin-top: 10px;
+  background-color: $background-color-2;
+  color: $text-color-4;
+  border: none;
 }
 
-.login__no-account, .login__register-link {
-    color: #393f81;
+.login__no-account,
+.login__register-link {
+  color: #393f81;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .login__error {
-    font-size: 0.8em;
-    color: red;
+  font-size: 0.8em;
+  color: red;
 }
-

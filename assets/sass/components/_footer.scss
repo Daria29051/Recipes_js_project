@@ -1,64 +1,70 @@
-.logo1{
-    height: 50px;
-    padding: 5px;
+.logo1 {
+  height: 50px;
+  padding: 5px;
 }
-.footer_wrapper{
-    display: flex;
-    justify-content: space-around;
-    background-color: orangered;
-    margin: 5px;
+.footer_wrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: orangered;
+  margin: 5px;
 }
-.footer_slogan{
+.footer_slogan {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #f46a06;
+}
+.footer_rights {
+  display: flex;
+  justify-content: center;
+  font-size: small;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.button {
+  padding: 12px;
+  background-color: $background-color-2;
+  color: $text-color-4;
+  border: 1px solid $text-color-2;
+  cursor: pointer;
+}
+.footer__icon-up {
+  position: fixed;
+  bottom: 15px;
+  right: 2%;
+  z-index: 1;
+  border: medium none;
+  background-image: none;
+  background: transparent;
+}
+.footer__icon-up {
+  fill: #f46a06;
+  height: 60px;
+  width: 60px;
+}
+.logo1,
+.button,
+.footer_wrapper-us,
+.footer_wrapper-rules,
+.footer_wrapper-contacts {
+  cursor: pointer;
+}
+.span1 {
+  color: orangered;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 375px) and (max-width: 1023px) {
+  .footer_wrapper,
+  .footer_slogan {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    color: #F46A06;
-}
-.footer_rights{
-    display: flex;
-    justify-content: center;
-    font-size: small;
-    margin-bottom: 5px;
-    color: rgba(0,0,0,0.5);
-}
-.button{
-    padding: 12px;
-    background-color: $background-color-2; 
-    color: $text-color-4;
-    border: 1px solid $text-color-2;
-    cursor: pointer;
-}
-.footer__icon-up {
-    position: fixed;
-    bottom: 15px;
-    right: 2%;
-    z-index: 1;
-    border: medium none;
-    background-image: none; 
-    background: transparent;
-}
-.footer__icon-up {
-    fill: #F46A06;
-    height: 60px;
-    width: 60px;
-}
-.logo1,.button,.footer_wrapper-us,.footer_wrapper-rules,.footer_wrapper-contacts{
-    cursor: pointer;
-}
-.span1{
-    color: orangered;
-    font-size: 2em;
-    display: flex;
-    justify-content: center;
-}
-@media screen and (min-width:375px) and (max-width:1023px) {
-    .footer_wrapper,.footer_slogan{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2%;
-    }
-    .button,.e-mail{
-        margin: 2%;
-    }
+    padding: 2%;
+  }
+  .button,
+  .e-mail {
+    margin: 2%;
+  }
 }

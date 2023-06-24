@@ -3,18 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            type="image/x-icon"
-            href="/assets/icons/free-icon-restaurant-6122680.png"
-            rel="shortcut icon"
-        />
+        <link href="assets/icons/free-icon-restaurant-6122680.png" rel="shortcut icon" type="image/png">
         <title>Love and Recipes</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/sass/style.css" />
     </head>
-  
+    
     <body>
-<!-- <div class="wrapper"> -->
+<div class="wrapper">
         <!-- хедер -->
         <header class="header">
             <div>
@@ -29,11 +25,13 @@
             <div class="header_login">Login</div>
             <button id="header_message">Leave us a message</button>
 
-            <!-- обертка для модального окна send a message -->
-            <div id="myModal" class="message-modal">
+    <!-- обертка для модального окна send a message -->
+    <div id="myModal" class="message-modal">
+
         </header>
 
         <!-- осн часть -->
+        <main>
         <div class="favourites">
             <h1 class="favourites__h">Your favourites</h1>
             <div class="favourites__msg">
@@ -41,10 +39,11 @@
             </div>
             <section class="recipe"></section>
         </div>
+    </main>
 
-      <!-- Обертка модального окна Login -->
-      <div id="loginModal" class=" login-modal modal fade"  tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      </div>
+                <!-- Обертка модального окна Login -->
+                <div id="loginModal" class=" login-modal modal fade"  tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                </div>
 
 <!-- футер -->
 <footer class="footer">
@@ -76,7 +75,7 @@
     <div class="span1"></div>
     <div class="footer_rights">© All rights reserved.</div> 
 </footer>
-<!-- </div> -->
+</div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="script.js"></script>
         <script src="favourites.js"></script>

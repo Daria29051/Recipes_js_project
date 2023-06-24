@@ -1,74 +1,79 @@
-.logo{
-    height: 50px;
-    padding: 5px;
+.logo {
+  height: 50px;
+  padding: 5px;
 }
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.header:hover{
-    background-color: orangered;
+.header:hover {
+  background-color: orangered;
 }
-.logo,.header_home,.header_all,.header_faves,.header_login,.header_message{
-    cursor: pointer;
+.logo,
+.header_home,
+.header_all,
+.header_faves,
+.header_login,
+.header_message {
+  cursor: pointer;
 }
-.header a{
-    text-decoration: none;
-    color: $text-color-1;
+.header a {
+  text-decoration: none;
+  color: $text-color-1;
 }
-.header a:hover{
-    text-decoration: underline;
+.header a:hover {
+  text-decoration: underline;
 }
-@media screen and (min-width:375px) and (max-width:1023px) {
-    .header{
-        display: flex;
-        flex-direction: column;
-    }
-}
-.message-modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 80%;
-    height: 80%;
-    overflow: auto;
-    background-color:#F46A06;
-}
-.modal-content{
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px #1a1919;
-    width: 50%;
-}
-.close{
-    float: right;
-    color: white;
-    font-weight: bold;
-}
-#header_message{
-    border: none;
-    background-color: orangered;
-}
-.modal_wrapper{
+@media screen and (min-width: 375px) and (max-width: 1023px) {
+  .header {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+  }
 }
-.btn_send{
+.message-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  overflow: auto;
+  background-color: #f46a06;
+}
+.modal-content {
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px #1a1919;
+  width: 50%;
+}
+.close {
+  float: right;
+  color: white;
+  font-weight: bold;
+}
+#header_message {
+  border: none;
+  background-color: orangered;
+}
+.modal_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.btn_send {
+  display: flex;
+  padding: 12px;
+  background-color: $background-color-2;
+  color: $text-color-4;
+  border: 1px solid white;
+}
+.input.error {
+  border-color: red;
+}
+@media screen and (min-width: 375px) and (max-width: 1023px) {
+  .header {
     display: flex;
-    padding: 12px;
-    background-color: $background-color-2; 
-    color: $text-color-4;
-    border: 1px solid white;
-}
-.input.error{
-    border-color: red;
-}
-@media screen and (min-width:375px) and (max-width:1023px) {
-    .header{
-        display: flex;
-        flex-direction: column;
-    }
+    flex-direction: column;
+  }
 }
