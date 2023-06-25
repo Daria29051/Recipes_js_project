@@ -6,10 +6,12 @@
   .favourites__h {
     @include text1;
     font-size: 3em;
+    margin-left: 0.6em;
   }
   .favourites__msg {
     font-size: 1.8em;
     font-weight: 700;
     color: $text-color-3;
+    margin-left: 1em;
   }
 }
