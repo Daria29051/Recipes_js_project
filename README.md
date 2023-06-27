@@ -1,5 +1,5 @@
 # Love and Recipes - recipes search website <br/>
- <img src="assets/icons/free-icon-restaurant-6122680.png" width=“100”/>
+ <img src="assets/icons/free-icon-restaurant-6122680.png" width=“30”/>
 </div>
 
 ## Website link: <br/>
@@ -8,7 +8,7 @@
 Love and Recipes is aimed to provide users with large variety of recipes of different cuisines all over the world.
 
 ## Functionality <br/>
-1. Recipes search
+1. Recipes search <br/>
 It includes direct recipe search, as well as extra filters, such as:
 - Cuisine;
 - Meal type;
@@ -16,13 +16,13 @@ It includes direct recipe search, as well as extra filters, such as:
 - Diet type;
 - Extra parametrs.
 
-2. Adding recipes to Favourites
+2. Adding recipes to Favourites <br/>
 All recipes the user chooses can be added to "My favourite" section as well as deleted from it, if needed.
 
-3. Login /Registration
+3. Login /Registration <br/>
 Implemented as a Modal, could be reached from "Login" menu section.
 
-4. Leave a message
+4. Leave a message <br/>
 Implemented as a Modal, could be reached from "Leave us a message" menu section.
 
 ## Technologies used: <br/>
