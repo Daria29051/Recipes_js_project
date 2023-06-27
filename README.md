@@ -32,5 +32,5 @@ HTML, BEM, CSS, SASS, JavaScript <br/>
 ## Developer team: <br/>
 
 Daria29051 https://github.com/Daria29051, <br/>
-Albina990 https://github.com/albina990 <br/>
-Sunkiti https://github.com/Sunkiti, <br/>
+Albina990 https://github.com/albina990, <br/>
+Sunkiti https://github.com/Sunkiti. <br/>
