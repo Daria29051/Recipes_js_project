@@ -26,7 +26,7 @@ Implemented as a Modal, could be reached from "Login" menu section.
 Implemented as a Modal, could be reached from "Leave us a message" menu section.
 
 ## Technologies used: <br/>
-HTML, CSS, SASS, JavaScript <br/>
+HTML, BEM, CSS, SASS, JavaScript <br/>
 
 ## Developer team: <br/>
 
