@@ -1,5 +1,5 @@
 # Love and Recipes - recipes search website <br/>
- <img src="assets/icons/free-icon-restaurant-6122680.png" width=“30”/>
+ <img src="assets/img/login-img.jpg" width=“100”/>
 </div>
 
 ## Website link: <br/>
