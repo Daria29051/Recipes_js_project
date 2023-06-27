@@ -414,7 +414,7 @@ body {
   border-color: red;
 }
 
-@media screen and (min-width: 375px) and (max-width: 1023px) {
+@media screen and (min-width: 360px) and (max-width: 1023px) {
   .header {
     display: flex;
     flex-direction: column;
@@ -487,7 +487,7 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 375px) and (max-width: 1023px) {
+@media screen and (min-width: 360px) and (max-width: 1023px) {
   .footer_wrapper,
   .footer_slogan {
     display: flex;
@@ -578,7 +578,7 @@ body {
   text-align: center;
 }
 
-@media screen and (min-width: 375px) and (max-width: 1023px) {
+@media screen and (min-width: 360px) and (max-width: 1023px) {
   html,
   body {
     overflow-x: hidden;
@@ -687,7 +687,7 @@ body {
   margin-bottom: 5px;
 }
 
-@media screen and (min-width: 375px) and (max-width: 1024px) {
+@media screen and (min-width: 360px) and (max-width: 1024px) {
   .search-screen {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
