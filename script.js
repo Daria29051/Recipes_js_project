@@ -1,26 +1,27 @@
 // Даша
 // ПЕРЕМЕННЫЕ ДЛЯ БЛОКА ПОИСКА РЕЦЕПТОВ
-const recipeContainer = document.querySelector(".recipe"); //элемент-контейнер для вставки карточки рецепта
-const recipeInput = document.getElementById("recipe-input"); //инпут ввода названия рецепта
-const cuisineTypeInput = document.getElementById("cuisine-type"); //выпад список выбора cuisine-type
-const dishTypeInput = document.getElementById("dish-type"); //выпад список выбора dish-type
-const searchButton = document.querySelector(".search-screen__button"); //кнопка Search
-let mealTypeArray = []; //массив со значениями meal-type
-let dietTypeArray = []; //массив со значениями diet-type
-let extraParamsArray = []; //массив со значениями diet-type
+const recipeContainer = document.querySelector(".recipe"); //recipe card elem
+const recipeInput = document.getElementById("recipe-input"); //recipe search input
+const cuisineTypeInput = document.getElementById("cuisine-type"); // cuisine-type choice
+const dishTypeInput = document.getElementById("dish-type"); // dish-type choice
+const searchButton = document.querySelector(".search-screen__button");
+let mealTypeArray = []; //meal-type array
+let dietTypeArray = []; // diet-type arrya
+let extraParamsArray = []; //extra-param array
 
-//ПЕРЕМЕННЫЕ ДЛЯ РАЗДЕЛА FAVOURITES
+//ПЕРЕМЕННЫЕ FAVOURITES
 let count; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
 
-//ПЕРЕМЕННЫЕ ДЛЯ МОДАЛЬНОГО ОКНА LOGIN
-const loginHeaderButton = document.querySelector(".header_login"); //кнопка Login в header
+//ПЕРЕМЕННЫЕ LOGIN
+const loginHeaderButton = document.querySelector(".header_login"); //Login in header
 
-//ПЕРЕМЕННЫЕ ДЛЯ МОДАЛЬНОГО ОКНА SEND A MESSAGE
-const message = document.getElementById("header_message"); ///кнопка SEND A MESSAGE в header
+//ПЕРЕМЕННЫЕ SEND A MESSAGE
+const message = document.getElementById("header_message"); /// Leave a message in header
 
-//ПЕРЕМЕННЫЕ ПРОВЕРКИ НА ВАЛИДНОСТЬ SUBSCRIBE В FOOTER
-const submit = document.getElementById("submit"); //кнопка subscribe в футере
+//ПЕРЕМЕННЫЕ SUBSCRIBE В FOOTER
+const submit = document.getElementById("submit"); // Subscribe in footer
 
+//Local Storage
 if (localStorage.length == 0) {
   count = 0;
 } else {
@@ -35,7 +36,6 @@ function getMealType() {
     output.push(checkbox.value);
   });
   mealTypeArray = output;
-  console.log(mealTypeArray);
 }
 
 //функция выбора diet-type
@@ -46,7 +46,6 @@ function getDietType() {
     output.push(checkbox.value);
   });
   dietTypeArray = output;
-  console.log(dietTypeArray);
 }
 
 //функция выбора extra-params
@@ -57,13 +56,7 @@ function getExtraParams() {
     output.push(checkbox.value);
   });
   extraParamsArray = output;
-  console.log(extraParamsArray);
 }
-
-// вешаем обработчик на кнопку Search
-searchButton.addEventListener("click", getMealType);
-searchButton.addEventListener("click", getDietType);
-searchButton.addEventListener("click", getExtraParams);
 
 // функция генерации url
 
@@ -110,27 +103,20 @@ function getRecipe() {
     .then((data) => {
       console.log(data);
       const recipesArray = data.hits;
-      console.log(recipesArray);
-
+      console.log(data.hits);
       if (recipesArray.length === 0) {
         recipeContainer.classList.add("error");
         throw new Error("Recipe is not found");
       }
 
       for (let recipe of recipesArray) {
-        // console.log(recipe);
-        // console.log(recipe.recipe.label);
-        // console.log(recipe.recipe.calories);
-        // console.log(recipe.recipe.ingredients);
         const ingredientsArray = recipe.recipe.ingredients;
         const ingredientText = document.createElement("p"); //создаём элемент под вывод ингредиентов
         for (let ingredient of ingredientsArray) {
-          console.log(ingredient.text);
           ingredientText.innerText += `${ingredient.text} <br>`;
         } //выводим текст каждого из ингредиентов
         let recipeIUri = recipe.recipe.uri;
         let recipeId = recipeIUri.substring(recipeIUri.indexOf("#") + 1);
-        console.log(recipeId);
         recipeContainer.innerHTML += `<div class="recipe__container">
       <div class="recipe__wrapper">
           <div class="recipe__description">
@@ -224,15 +210,7 @@ function getRecipe() {
     });
 }
 
-// добавляем обработчик событий на Search
-searchButton.addEventListener("click", getRecipe);
-
-
-
 // МОДАЛЬНОЕ ОКНО LOGIN (ДАША)
-
-// вешаем обработчик событий (вызов модального окна по клику на пункт Login меню)
-loginHeaderButton.addEventListener("click", createLoginModal);
 
 //ФУНКЦИЯ-СБОРЩИК МОДАЛЬНОГО ОКНА
 function createLoginModal() {
@@ -420,17 +398,7 @@ function createLoginModal() {
   }
 }
 
-
-
-
-
-
-
 //ЛЕНА
-
-// вешаем обработчик событий на пункт меню Send a message для показа модал окна
-message.addEventListener("click", createMessageModal);
-
 //ФУНКЦИЯ ОТРИСОВКИ МОДАЛЬНОГО ОКНА SEND A MESSAGE
 function createMessageModal() {
   const modal = document.getElementById("myModal"); //поле для вставки модального окна
@@ -488,7 +456,6 @@ function createMessageModal() {
     }
 
     if (!validateEmail(emailUser.value)) {
-      console.log("email not valid");
       errorsArray.push(`Email is not valid.`);
     }
 
@@ -505,8 +472,6 @@ function createMessageModal() {
 }
 
 // ПРОВЕРКА МЕЙЛА НА ВАЛИДНОСТЬ (FOOTER)
-
-submit.addEventListener("click", subscribeCheckValidity);
 
 function subscribeCheckValidity(e) {
   e.preventDefault();
@@ -534,3 +499,26 @@ function subscribeCheckValidity(e) {
     el.innerHTML = mess;
   }
 }
+
+//обработчики событий
+
+// Search
+try {
+  searchButton.addEventListener("click", () => {
+    getMealType();
+    getDietType();
+    getExtraParams();
+    getRecipe();
+  });
+} catch (error) {
+  console.log(`This page does not contain searchButton.`);
+}
+
+// Login
+loginHeaderButton.addEventListener("click", createLoginModal);
+
+// Leave a message
+message.addEventListener("click", createMessageModal);
+
+// Subscribe
+submit.addEventListener("click", subscribeCheckValidity);

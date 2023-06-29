@@ -25,7 +25,7 @@
 .header a:hover {
   text-decoration: underline;
 }
-@media screen and (min-width: 360px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .header {
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@
 .input.error {
   border-color: red;
 }
-@media screen and (min-width: 280px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .header {
     display: flex;
     flex-direction: column;
