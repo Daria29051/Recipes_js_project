@@ -361,7 +361,7 @@ body {
   text-decoration: underline;
 }
 
-@media screen and (min-width: 375px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .header {
     display: flex;
     flex-direction: column;
@@ -414,7 +414,7 @@ body {
   border-color: red;
 }
 
-@media screen and (min-width: 280px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .header {
     display: flex;
     flex-direction: column;
@@ -466,6 +466,7 @@ body {
   fill: #f46a06;
   height: 60px;
   width: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo1,
@@ -487,7 +488,7 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 280px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .footer_wrapper,
   .footer_slogan {
     display: flex;
@@ -578,7 +579,7 @@ body {
   text-align: center;
 }
 
-@media screen and (min-width: 280px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   html,
   body {
     overflow-x: hidden;
@@ -687,7 +688,7 @@ body {
   margin-bottom: 5px;
 }
 
-@media screen and (min-width: 280px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .search-screen {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -774,7 +775,6 @@ body {
   width: 90vw;
 }
 .recipe .fav__icon {
-  border: solid 1.5px rgb(255, 72, 0);
   border-radius: 14px;
   margin-left: 20px;
   cursor: pointer;
@@ -886,6 +886,19 @@ body {
 .login__no-account,
 .login__register-link {
   color: #393f81;
+}
+
+.login__email,
+.login__password,
+.login__name,
+.login__surname,
+.login__confirm-password {
+  max-width: 100%;
+}
+
+.modal-title {
+  font-size: 1em;
+  width: 100%;
 }
 
 .hidden {

@@ -39,6 +39,7 @@
   fill: #f46a06;
   height: 60px;
   width: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo1,
@@ -59,7 +60,7 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 280px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .footer_wrapper,
   .footer_slogan {
     display: flex;
