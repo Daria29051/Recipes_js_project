@@ -505,10 +505,10 @@ function subscribeCheckValidity(e) {
 // Search
 
   searchButton.addEventListener("click", () => {
-    getRecipe();
     getMealType();
     getDietType();
     getExtraParams();
+    getRecipe();
   });
 
 
