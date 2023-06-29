@@ -21,6 +21,7 @@ const message = document.getElementById("header_message"); /// Leave a message i
 //ПЕРЕМЕННЫЕ SUBSCRIBE В FOOTER
 const submit = document.getElementById("submit"); // Subscribe in footer
 
+//Local Storage
 if (localStorage.length == 0) {
   count = 0;
 } else {
@@ -35,7 +36,6 @@ function getMealType() {
     output.push(checkbox.value);
   });
   mealTypeArray = output;
-  console.log(mealTypeArray);
 }
 
 //функция выбора diet-type
@@ -503,14 +503,16 @@ function subscribeCheckValidity(e) {
 //обработчики событий
 
 // Search
-
+try {
   searchButton.addEventListener("click", () => {
     getMealType();
     getDietType();
     getExtraParams();
     getRecipe();
   });
-
+} catch (error) {
+  console.log(`This page does not contain searchButton.`);
+}
 
 // Login
 loginHeaderButton.addEventListener("click", createLoginModal);

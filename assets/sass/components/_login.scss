@@ -27,6 +27,19 @@
   color: #393f81;
 }
 
+.login__email,
+.login__password,
+.login__name,
+.login__surname,
+.login__confirm-password {
+  max-width: 100%;
+}
+
+.modal-title {
+  font-size: 1em;
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
