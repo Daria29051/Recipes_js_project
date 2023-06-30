@@ -1,16 +1,12 @@
 const recipeContainer1 = document.querySelector(".recipe"); //элемент-контейнер для вставки карточки рецепта
 const favouritesMessage = document.querySelector(".favourites__msg"); // сообщение об отсутствии добавленных фаворитов
 let count1; //вспомогательный счётчик для генерирования уникальных ключей в локальном хранилище
-if (localStorage.length == 0) {
-  count1 = 0;
-} else {
-  count1 = Math.max.apply(null, Object.keys(localStorage)); // счётчик принимает значение максимального ключа, имеющегося в локальном хранилище
-  favouritesMessage.hidden = true;
-}
+
 for (let key in localStorage) {
   // извлечение идентификаторов рецептов из локального хранилища
   let value = localStorage[key].toString();
   if (value.startsWith("recipe")) {
+    favouritesMessage.hidden = true;
     getRecipeById(value);
   }
 }
@@ -91,8 +87,8 @@ function getRecipeById(id) {
             srcString.endsWith("add-static.svg")
           ) {
             icon.src = "./assets/icons/added-hovered.svg";
-            count1++;
-            let key = `${count1}`;
+            count1 = Math.ceil(Math.random() * 1000);
+            let key = `${count}${id.substring(6)}`;
             let value = id;
             localStorage.setItem(key, value); // добавление id рецепта в локальное хранилище
           } else {
