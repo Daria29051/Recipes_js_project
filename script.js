@@ -21,13 +21,6 @@ const message = document.getElementById("header_message"); /// Leave a message i
 //ПЕРЕМЕННЫЕ SUBSCRIBE В FOOTER
 const submit = document.getElementById("submit"); // Subscribe in footer
 
-//Local Storage
-if (localStorage.length == 0) {
-  count = 0;
-} else {
-  count = Math.max.apply(null, Object.keys(localStorage)); // счётчик принимает значение максимального ключа, имеющегося в локальном хранилище
-}
-
 //функция выбора meal-type
 function getMealType() {
   let checkboxes = document.querySelectorAll('input[name="meal-type"]:checked');
@@ -185,8 +178,8 @@ function getRecipe() {
               srcString.endsWith("add-static.svg")
             ) {
               icon.src = "./assets/icons/added-hovered.svg";
-              count++;
-              let key = `${count}`;
+              count = Math.ceil(Math.random() * 1000);
+              let key = `${count}${id.substring(6)}`;
               let value = id;
               localStorage.setItem(key, value); // добавление id рецепта в локальное хранилище
             } else {
